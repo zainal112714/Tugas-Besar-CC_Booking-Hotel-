@@ -6,7 +6,10 @@ use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\GownPackageController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\CategoryController;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GownPackageController as FrontendGownPackageController;
+use App\Http\Controllers\BlogController as FrontendBlogController;
+use App\Http\Controllers\BookingController as FrontendBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +36,12 @@ Route::group(['middleware' => ['is_admin','auth'], 'prefix' => 'admin', 'as' => 
     Route::resource('categories', CategoryController::class)->except('show');
 
 });
+
+
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
+// gown packages
+Route::get('gown-packages',[FrontendGownPackageController::class, 'index'])->name('gown_package.index');
+Route::get('gown-packages/{gown_package:slug}',[FrontendGownPackageController::class, 'show'])->name('gown_package.show');
+// blogs
+Route::get('blogs', [FrontendBlogController::class, 'index'])->name('blog.index');
+Route::get('blogs/{blog:slug}', [FrontendBlogController::class, 'show'])->name('blog.show');
