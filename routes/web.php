@@ -45,3 +45,10 @@ Route::get('gown-packages/{gown_package:slug}',[FrontendGownPackageController::c
 // blogs
 Route::get('blogs', [FrontendBlogController::class, 'index'])->name('blog.index');
 Route::get('blogs/{blog:slug}', [FrontendBlogController::class, 'show'])->name('blog.show');
+Route::get('blogs/category/{category:slug}', [FrontendBlogController::class, 'category'])->name('blog.category');
+// contact
+Route::get('contact', function() {
+    return view('contact');
+})->name('contact');
+// booking
+Route::post('booking', [FrontendBookingController::class, 'store'])->name('booking.store');
