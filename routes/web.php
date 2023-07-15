@@ -6,9 +6,6 @@ use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\GownPackageController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -35,3 +32,19 @@ Route::group(['middleware' => ['is_admin','auth'], 'prefix' => 'admin', 'as' => 
     // categories
     Route::resource('categories', CategoryController::class)->except('show');
 });
+
+
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
+// gown packages
+Route::get('gown-packages',[FrontendGownPackageController::class, 'index'])->name('gown_package.index');
+Route::get('gown-packages/{gown_package:slug}',[FrontendGownPackageController::class, 'show'])->name('gown_package.show');
+// blogs
+Route::get('blogs', [FrontendBlogController::class, 'index'])->name('blog.index');
+Route::get('blogs/{blog:slug}', [FrontendBlogController::class, 'show'])->name('blog.show');
+Route::get('blogs/category/{category:slug}', [FrontendBlogController::class, 'category'])->name('blog.category');
+// contact
+Route::get('contact', function() {
+    return view('contact');
+})->name('contact');
+// booking
+Route::post('booking', [FrontendBookingController::class, 'store'])->name('booking.store');
