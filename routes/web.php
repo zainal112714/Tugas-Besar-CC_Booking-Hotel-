@@ -14,6 +14,7 @@ use App\Http\Controllers\GownPackageController as FrontendGownPackageController;
 use App\Http\Controllers\BlogController as FrontendBlogController;
 use App\Http\Controllers\BookingController as FrontendBookingController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
