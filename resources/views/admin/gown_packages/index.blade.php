@@ -6,7 +6,8 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 justify-content-between d-flex">
-                    <h1 class="m-0">{{ __('Booking') }}</h1>
+                    <h1 class="m-0">{{ __('Gown Package') }}</h1>
+                    <a href="{{ route('admin.gown_packages.create') }}" class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> </a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -26,25 +27,22 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Number Phone</th>
-                                        <th>Date</th>
-                                        <th>Gown Package</th>
+                                        <th>Type</th>
+                                        <th>Size</th>
+                                        <th>Price</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($bookings as $booking)
+                                @foreach($gown_packages as $gown_package)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $booking->name }}</td>
-                                        <td>{{ $booking->email }}</td>
-                                        <td>{{ $booking->number_phone }}</td>
-                                        <td>{{ $booking->date }}</td>
-                                        <td>{{ $booking->gown_package->size }}</td>
+                                        <td>{{ $gown_package->type }}</td>
+                                        <td>{{ $gown_package->size }}</td>
+                                        <td>{{ $gown_package->price }}</td>
                                         <td>
-                                            <form onclick="return confirm('are you sure ?');" class="d-inline-block" action="{{ route('admin.bookings.destroy', [$booking]) }}" method="post">
+                                            <a href="{{ route('admin.gown_packages.edit', [$gown_package]) }}" class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> </a>
+                                            <form onclick="return confirm('are you sure ?');" class="d-inline-block" action="{{ route('admin.gown_packages.destroy', [$gown_package]) }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </button>
@@ -58,7 +56,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer clearfix">
-                            {{ $bookings->links() }}
+                            {{ $gown_packages->links() }}
                         </div>
                     </div>
 
