@@ -1,0 +1,4 @@
+# MarieLocatoin
+
+MarieLocation
+Rental baju pernikahan Marie Location adalah sebuah website yang menyediakan baju pernikahan untuk disewakan kepada calon pengantin. Dengan beragam koleksi baju pernikahan yang tersedia, pelanggan dapat memilih baju sesuai dengan selera, tema pernikahan, dan ukuran yang mereka inginkan. Sistem rental baju pernikahan Marie Location dirancang untuk mengelola inventaris dengan efisien, melacak stok baju secara real-time, dan memastikan ketersediaan yang akurat. Pelanggan dapat dengan mudah melihat ketersediaan baju pada jadwal yang diinginkan dan melakukan pengukuran melalui formulir yang terlampir di website atau mengunjungi toko offline store. Pembayaran dapat dilakukan secara online melalui e-wallet atau transfer bank, dan sistem ini juga mencatat transaksi dan mengelola keuangan bisnis dengan baik. Dengan sistem ini, Marie Location bertujuan untuk meningkatkan efisiensi operasional, pengalaman pelanggan, dan keuntungan bisnis mereka.
