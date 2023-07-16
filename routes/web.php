@@ -13,7 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GownPackageController as FrontendGownPackageController;
 use App\Http\Controllers\BlogController as FrontendBlogController;
 use App\Http\Controllers\BookingController as FrontendBookingController;
-use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +38,6 @@ Route::group(['middleware' => ['is_admin','auth'], 'prefix' => 'admin', 'as' => 
     Route::resource('gown_packages.galleries', GalleryController::class)->except(['create', 'index','show']);
     // categories
     Route::resource('categories', CategoryController::class)->except('show');
-    // blogs
-    Route::resource('blogs', BlogController::class)->except('show');
-    // profile
-    Route::get('users', [UserController::class, 'index'])->name('users.index');
-    Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 
 });
 

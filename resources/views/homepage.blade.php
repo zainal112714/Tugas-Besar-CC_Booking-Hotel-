@@ -57,7 +57,7 @@
 
             <div class="popular__container swiper">
                 <div class="swiper-wrapper">
-                    @foreach ($Gown_packages as $Gown_package)
+                    @foreach ($Gown_packages as $gown_package)
                         <article class="popular__card swiper-slide">
                             <a href="{{ route('gown_package.show', $gown_package->slug) }}">
                                 <img src="{{ Storage::url($gown_package->galleries->first()->images) }}" alt=""
@@ -67,7 +67,7 @@
                                         <span>$</span>{{ number_format($gown_package->price, 2) }}
                                     </h2>
                                     <h3 class="popular__title">
-                                        {{ $gown_package->location }}
+                                        {{ $gown_package->size }}
                                     </h3>
                                     <p class="popular__description">{{ $gown_package->type }}</p>
                                 </div>
