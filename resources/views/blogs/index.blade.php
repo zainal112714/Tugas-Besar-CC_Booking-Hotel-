@@ -1,65 +1,75 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('content')
-<!--==================== HOME ====================-->
-<section>
-        <div class="swiper-container gallery-top">
-          <div class="swiper-wrapper">
-            <section class="islands swiper-slide">
-              <img
-                src="{{ asset('frontend/assets/img/blog-hero.jpg') }}"
-                alt=""
-                class="islands__bg"
-              />
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 justify-content-between d-flex">
+                    <h1 class="m-0">{{ __('Blog') }}</h1>
+                    <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> </a>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-              <div class="islands__container container">
-                <div class="islands__data">
-                  <h2 class="islands__subtitle">Our</h2>
-                  <h1 class="islands__title">Blog</h1>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </section>
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
 
-      <!-- blog -->
-      <section class="blog section" id="blog">
-        <div class="blog__container container">
-          <span class="section__subtitle" style="text-align: center"
-            >All Blog</span
-          >
-          <h2 class="section__title" style="text-align: center">
-            Find The Best Travel Story
-          </h2>
+                    <div class="card">
+                        <div class="card-body p-0">
 
-          <div class="blog__content grid">
-            @foreach($blogs as $blog)
-                <article class="blog__card">
-                <div class="blog__image">
-                    <img src="{{ Storage::url($blog->image) }}" alt="" class="blog__img" />
-                    <a href="{{ route('blog.show',$blog->slug) }}" class="blog__button">
-                    <i class="bx bx-right-arrow-alt"></i>
-                    </a>
-                </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Excerpt</th>
+                                        <th>Category</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($blogs as $blog)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $blog->title }}</td>
+                                        <td>
+                                            <a href="{{ Storage::url($blog->image) }}" target="_blank">
+                                                <img src="{{ Storage::url($blog->image) }}" width="100" alt="">
+                                            </a>
+                                        </td>
+                                        <td>{{ $blog->excerpt }}</td>
+                                        <td>{{ $blog->category->name }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.blogs.edit', [$blog]) }}" class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> </a>              
+                                            <form onclick="return confirm('are you sure ?');" class="d-inline-block" action="{{ route('admin.blogs.destroy', [$blog]) }}" method="post">
+                                                @csrf 
+                                                @method('delete')
+                                                <button class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </button>
+                                            </form>                              
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
 
-                <div class="blog__data">
-                    <h2 class="blog__title">{{ $blog->title }}</h2>
-                    <p class="blog__description">
-                        {{ $blog->excerpt }}
-                    </p>
-
-                    <div class="blog__footer">
-                    <div class="blog__reaction">{{ date('d M Y', strtotime($blog->created_at)) }}</div>
-                    <div class="blog__reaction">
-                        <i class="bx bx-show"></i>
-                        <span>{{ $blog->reads }}</span>
+                        <div class="card-footer clearfix">
+                            {{ $blogs->links() }}
+                        </div>
                     </div>
-                    </div>
+
                 </div>
-                </article>
-            @endforeach
-          </div>
-        </div>
-      </section>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
 @endsection
