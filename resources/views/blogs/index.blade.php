@@ -7,7 +7,7 @@
           <div class="swiper-wrapper">
             <section class="islands swiper-slide">
               <img
-                src="{{ asset('frontend/assets/img/blog-hero.jpg') }}"
+                src="{{ asset('frontend/assets/img/blog.jpg') }}"
                 alt=""
                 class="islands__bg"
               />
