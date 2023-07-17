@@ -1,11 +1,11 @@
 @extends('layouts.frontend')
 
 @section('content')
-<!--==================== HOME ====================-->
+{{-- ==================== HOME ==================== --}}
 <section>
         <div class="swiper-container gallery-top">
           <div class="swiper-wrapper">
-            <!--========== ISLANDS 1 ==========-->
+            {{-- ========== Hero ========== --}}
             <section class="islands swiper-slide">
               <img
                 src="{{ asset('frontend/assets/img/contact-hero.jpg') }}"
@@ -15,16 +15,13 @@
               <div class="bg__overlay">
                 <div class="islands__container container">
                   <div class="islands__data">
-                    {{-- <h2 class="islands__subtitle">Need Gown</h2> --}}
-                    {{-- <h1 class="islands__title">Contact Us</h1> --}}
-                  </div>
                 </div>
               </div>
             </section>
           </div>
         </div>
       </section>
-      <!--==================== CONTACT ====================-->
+      {{-- ==================== CONTACT ==================== --}}
       <section class="contact section" id="contact">
         <div class="contact__container container grid">
           <div class="contact__images">
@@ -91,7 +88,6 @@
                     <p class="contact__card-description">marie_location</p>
                   </div>
                 </div>
-
                 <button class="button contact__card-button">Direct Message Now</button>
               </div>
             </div>
