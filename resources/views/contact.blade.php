@@ -71,7 +71,7 @@
                   <i class="bx bxs-video"></i>
                   <div>
                     <h3 class="contact__card-title">Email</h3>
-                    <p class="contact__card-description">marielocation
+                    <p class="contact__card-description">mrielction
                         @gmail.com</p>
                   </div>
                 </div>
