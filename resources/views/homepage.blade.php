@@ -29,7 +29,7 @@
         </div>
     </section>
 
-    <!--==================== LOGOS ====================-->
+    {{-- ==================== LOGOS ==================== --}}
     <section class="logos" style="margin-top: 9rem; padding-bottom: 3rem">
         <div class="logos__container container grid">
             <div class="logos__img">
@@ -47,7 +47,7 @@
         </div>
     </section>
 
-    <!--==================== POPULAR ====================-->
+    {{-- ==================== POPULAR ==================== --}}
     <section class="section" id="popular">
         <div class="container">
             <span class="section__subtitle" style="text-align: center">Best Choice</span>
@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <!--==================== VALUE ====================-->
+    {{-- ==================== VALUE ==================== --}}
     <section class="value section" id="value">
         <div class="value__container container grid">
             <div class="value__images">
@@ -188,7 +188,7 @@
         </div>
     </section>
 
-    <!-- blog -->
+    {{-- blog --}}
     <section class="blog section" id="blog">
         <div class="blog__container container">
             <span class="section__subtitle" style="text-align: center">Our Blog</span>
