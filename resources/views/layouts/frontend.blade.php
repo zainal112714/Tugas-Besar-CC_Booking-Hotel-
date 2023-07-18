@@ -13,7 +13,7 @@
 
     {{-- =============== CSS =============== --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
-    
+
     @stack('style-alt')
     <title>Gown Website</title>
 </head>
