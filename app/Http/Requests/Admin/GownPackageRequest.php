@@ -25,7 +25,7 @@ class GownPackageRequest extends FormRequest
             case 'POST' : {
                 return [
                     'type' => 'required',
-                    'location' => 'required',
+                    'size' => 'required',
                     'price' => 'required',
                     'description' => 'required'
                 ];
@@ -34,7 +34,7 @@ class GownPackageRequest extends FormRequest
             case 'PATCH': {
                 return [
                     'type' => 'required',
-                    'location' => 'required',
+                    'size' => 'required',
                     'price' => 'required',
                     'description' => 'required'
                 ];
