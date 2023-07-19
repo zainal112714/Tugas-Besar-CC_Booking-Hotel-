@@ -11,9 +11,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('css/icheck-bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/icheck-bootstrap.min.css') }}"> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    @vite('resources/sass/app.scss')
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">

@@ -9,7 +9,7 @@
                     <a href="{{ route('homepage') }}"
                         class="nav__link {{ request()->is('/') ? ' active-link' : '' }}">
                         <i class="bx bx-home-alt"></i>
-                        <span>Home</span>
+                        <span class="">Home</span>
                     </a>
                 </li>
                 <li class="nav__item">
