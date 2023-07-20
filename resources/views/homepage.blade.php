@@ -16,11 +16,11 @@
                                             Discover
                                         </h2>
                                         <h1 class="heros__title">
-                                            The Enchanting World
+                                            Unparalleled Elegance
                                         </h1>
                                         <p class="heros__description">
-                                            It's the perfect time to don a gown and immerse yourself
-                                            <br />in the beauty of the wedding realm.
+                                            Experience the luxury of wearing designer gowns crafted with
+                                            <br />intricate details and the finest fabrics.
                                         </p>
                                     </div>
                                 </div>
@@ -51,14 +51,14 @@
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
                                         <h2 class="heros__subtitle">
-                                            Discover
+                                            Make a
                                         </h2>
                                         <h1 class="heros__title">
-                                            The Enchanting World
+                                            Timeless Memories
                                         </h1>
                                         <p class="heros__description">
-                                            It's the perfect time to don a gown and immerse yourself
-                                            <br />in the beauty of the wedding realm.
+                                            Feel confident and beautiful on your big day,
+                                            <br />as every gown is meticulously maintained to ensure you create lasting memories.
                                         </p>
                                     </div>
                                 </div>
