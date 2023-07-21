@@ -13,6 +13,7 @@
 
     {{-- =============== CSS =============== --}}
     {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" /> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     @vite('resources/sass/app.scss')
     @stack('style-alt')
     <title>Gown Website</title>

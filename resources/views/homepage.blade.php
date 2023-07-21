@@ -12,10 +12,10 @@
                             <div class="bg__overlay">
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
-                                        <h2 class="heros__subtitle">
+                                        <h2 class="heros__subtitle" id="heros__subtitle">
                                             Discover
                                         </h2>
-                                        <h1 class="heros__title">
+                                        <h1 class="heros__title" id="heros__title">
                                             Unparalleled Elegance
                                         </h1>
                                         <p class="heros__description">
@@ -31,10 +31,10 @@
                             <div class="bg__overlay">
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
-                                        <h2 class="heros__subtitle">
+                                        <h2 class="heros__subtitle" id="heros__subtitle">
                                             Discover
                                         </h2>
-                                        <h1 class="heros__title">
+                                        <h1 class="heros__title" id="heros__title">
                                             The Enchanting World
                                         </h1>
                                         <p class="heros__description">
@@ -50,10 +50,10 @@
                             <div class="bg__overlay">
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
-                                        <h2 class="heros__subtitle">
+                                        <h2 class="heros__subtitle" id="heros__subtitle">
                                             Make a
                                         </h2>
-                                        <h1 class="heros__title">
+                                        <h1 class="heros__title" id="heros__title">
                                             Timeless Memories
                                         </h1>
                                         <p class="heros__description">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h6 class="section-title text-start text-primary pe-3">About Us</h6>
                     <h1 class="mb-4">Welcome to MarieLocation</h1>
                     <p class="mb-4"> The ultimate destination for renting elegant and breathtaking bridal gowns.
                         We are a bridal gown rental service dedicated to helping you fulfill your dream of a perfect wedding
@@ -128,7 +128,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="section-title bg-white text-center text-primary px-3">Our</h2>
+                <h2 class="section-title text-center text-primary px-3">Our</h2>
                 <h1 class="mb-5">TEAMS</h1>
             </div>
             <div class="row g-4">
