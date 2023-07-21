@@ -8,7 +8,7 @@
                 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="{{ asset('frontend/assets/img/1.png') }}" class="d-block w-100" alt="...">
+                            <img src="{{ Vite::asset('resources/images/1.png') }}" class="d-block w-100" alt="...">
                             <div class="bg__overlay">
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="{{ asset('frontend/assets/img/2.png') }}" class="d-block w-100" alt="...">
+                            <img src="{{ Vite::asset('resources/images/2.png') }}" class="d-block w-100" alt="...">
                             <div class="bg__overlay">
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="5000">
-                            <img src="{{ asset('frontend/assets/img/3.png') }}" class="d-block w-100" alt="...">
+                            <img src="{{ Vite::asset('resources/images/3.png') }}" class="d-block w-100" alt="...">
                             <div class="bg__overlay">
                                 <div class="heros__container container">
                                     <div class="heros__data" style="z-index: 99; position: relative">
@@ -88,16 +88,16 @@
     <section class="logos" style="margin-top: 2rem; padding-bottom: 3rem">
         <div class="logos__container container grid">
             <div class="logos__img">
-                <img src="{{ asset('frontend/assets/img/av.png') }}" alt="" />
+                <img src="{{ Vite::asset('resources/images/av.png') }}" alt="" />
             </div>
             <div class="logos__img">
-                <img src="{{ asset('frontend/assets/img/ht1.png') }}" alt="" />
+                <img src="{{ Vite::asset('resources/images/ht1.png') }}"alt="" />
             </div>
             <div class="logos__img">
-                <img src="{{ asset('frontend/assets/img/yg.jpg') }}" alt="" />
+                <img src="{{ Vite::asset('resources/images/yg.jpg') }}" alt="" />
             </div>
             <div class="logos__img">
-                <img src="{{ asset('frontend/assets/img/sg.png') }}" alt="" />
+                <img src="{{ Vite::asset('resources/images/sg.png') }}" alt="" />
             </div>
         </div>
     </section>
