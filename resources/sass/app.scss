@@ -185,7 +185,7 @@ body.dark-theme {
     font-size: 1.5rem;
 }
 
-.nav__logo i {
+.nav__logo{
     font-size: 1.25rem;
     color: var(--second-color);
 }
@@ -226,6 +226,13 @@ body.dark-theme {
         display: none;
     }
 }
+
+@media screen and (max-width: 767px) {
+    #nav__logo i {
+        font-size: 10px;
+        color: var(--second-color);
+    }
+  }
 
 /* Change background header */
 .scroll-header {
@@ -339,6 +346,20 @@ body.dark-theme {
     }
     .heros__title {
         font-size: 5.5rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #heros__subtitle {
+        font-size: 0.5rem; /* Sesuaikan ukuran font sesuai kebutuhan */
+    }
+
+    #heros__title {
+        font-size: 1.2rem; /* Sesuaikan ukuran font sesuai kebutuhan */
+    }
+
+    .heros__description {
+        font-size: 0.5rem; /* Sesuaikan ukuran font sesuai kebutuhan */
     }
 }
 
