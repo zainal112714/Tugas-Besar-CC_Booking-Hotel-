@@ -7,7 +7,7 @@
           <div class="swiper-wrapper">
             <section class="islands swiper-slide">
               <img
-                src="{{ asset('frontend/assets/img/blog.jpg') }}"
+                src="{{ asset('frontend/assets/img/6.png') }}"
                 alt=""
                 class="islands__bg"
               />
@@ -30,7 +30,7 @@
             >All Blog</span
           >
           <h2 class="section__title" style="text-align: center">
-            Find The Best Travel Story
+            Find The Best Gown Story
           </h2>
 
           <div class="blog__content grid">

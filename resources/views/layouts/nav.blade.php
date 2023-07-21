@@ -1,15 +1,15 @@
 {{-- ==================== HEADER ==================== --}}
 <header class="header" id="header">
     <nav class="nav container">
-        <a href="{{ route('homepage') }}" class="nav__logo">MarieLocation </a>
+        <a href="{{ route('homepage') }}" class="nav__logo" id="nav__logo">MarieLocation </a>
 
         <div class="nav__menu">
-            <ul class="nav__list">
+            <ul class="nav__list" style='margin: 0rem; padding-left:0px'>
                 <li class="nav__item">
                     <a href="{{ route('homepage') }}"
                         class="nav__link {{ request()->is('/') ? ' active-link' : '' }}">
                         <i class="bx bx-home-alt"></i>
-                        <span>Home</span>
+                        <span class="">Home</span>
                     </a>
                 </li>
                 <li class="nav__item">

@@ -12,9 +12,9 @@
 
         <div class="footer__content">
             <div>
-                <h3 class="footer__title">About</h3>
+                <h3 class="footer__title"  >About</h3>
 
-                <ul class="footer__links">
+                <ul class="footer__links" style="padding-left: 0px">
                     <li>
                         <a href="#" class="footer__link">About Us</a>
                     </li>
@@ -29,7 +29,7 @@
             <div>
                 <h3 class="footer__title">Company</h3>
 
-                <ul class="footer__links">
+                <ul class="footer__links" style="padding-left: 0px">
                     <li>
                         <a href="#" class="footer__link">How We Work?
                         </a>
@@ -43,9 +43,9 @@
                 </ul>
             </div>
             <div>
-                <h3 class="footer__title">Support</h3>
+                <h3 class="footer__title" >Support</h3>
 
-                <ul class="footer__links">
+                <ul class="footer__links" style="padding-left: 0px">
                     <li>
                         <a href="#" class="footer__link">FAQs </a>
                     </li>
@@ -61,7 +61,7 @@
             <div>
                 <h3 class="footer__title">Follow us</h3>
 
-                <ul class="footer__social">
+                <ul class="footer__social" style="padding-left: 0px">
                     <a href="#" class="footer__social-link">
                         <i class="bx bxl-facebook-circle"></i>
                     </a>

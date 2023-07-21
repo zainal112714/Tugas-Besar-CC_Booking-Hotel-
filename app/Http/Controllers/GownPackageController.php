@@ -18,6 +18,6 @@ class GownPackageController extends Controller
     {
         $gown_packages = GownPackage::where('id', '!=', $gown_package->id)->get();
 
-        return view('gown_packages.show', compact('gown_packages', 'gown_packages'));
+        return view('gown_packages.show', compact('gown_package', 'gown_packages'));
     }
 }
