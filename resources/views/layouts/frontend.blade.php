@@ -44,6 +44,9 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+    <!--=============== MAIN JS ===============-->
+    <link rel="stylesheet" href="{{ asset('css/testi.css') }}">
+
     @stack('script-alt')
     @vite('resources/js/app.js')
 </body>

@@ -7,7 +7,7 @@
           <div class="swiper-wrapper">
             <section class="islands swiper-slide">
               <img
-                src="{{ asset('frontend/assets/img/6.png') }}"
+              src="{{ Vite::asset('resources/images/pg1.png') }}""
                 alt=""
                 class="islands__bg"
               />
