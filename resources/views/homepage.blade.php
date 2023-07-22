@@ -102,6 +102,45 @@
         </div>
     </section>
 
+       {{-- ==================== POPULAR ==================== --}}
+       <section class="section" id="popular">
+        <div class="container">
+            <span class="section__subtitle" style="text-align: center">Best Choice</span>
+            <h2 class="section__title" style="text-align: center">
+                Popular Gowns
+            </h2>
+
+            <div class="popular__container swiper">
+                <div class="swiper-wrapper">
+                    @foreach ($Gown_packages as $gown_package)
+                        <article class="popular__card swiper-slide">
+                            <a href="{{ route('gown_package.show', $gown_package->slug) }}">
+                                <img src="{{ Storage::url($gown_package->galleries->first()->images) }}" alt=""
+                                    class="popular__img" />
+                                <div class="popular__data">
+                                    <h2 class="popular__price">
+                                        <span>$</span>{{ number_format($gown_package->price, 2) }}
+                                    </h2>
+                                    <h3 class="popular__title">
+                                        {{ $gown_package->size }}
+                                    </h3>
+                                    <p class="popular__description">{{ $gown_package->type }}</p>
+                                </div>
+                            </a>
+                        </article>
+                    @endforeach
+                </div>
+
+                <div class="swiper-button-next">
+                    <i class="bx bx-chevron-right"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="bx bx-chevron-left"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- ==================== ABOUT US ==================== --}}
     <div class="container-xxl py-5">
         <div class="container">
@@ -136,7 +175,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ Vite::asset('resources/images/Foto1.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ Vite::asset('resources/images/Foto1.jpg') }}" alt="" >
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
@@ -211,48 +250,152 @@
     <!-- Team End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Cutomers Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
+    <section class="blog section" id="blog">
+        <div class="blog__container container">
+            <span class="section__subtitle" style="text-align: center">Our Blog</span>
+            <h2 class="section__title" style="text-align: center">
+                The Best Gowns For You
+            </h2>
+
+            <div class="blog__content grid">
+                @foreach ($blogs as $blog)
+                    <article class="blog__card">
+                        <div class="blog__image">
+                            <img src="{{ Storage::url($blog->image) }}" alt="" class="blog__img" />
+                            <a href="{{ route('blog.show', $blog->slug) }}" class="blog__button">
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </a>
+                        </div>
+
+                        <div class="blog__data">
+                            <h2 class="blog__title">
+                                {{ $blog->title }}
+                            </h2>
+                            <p class="blog__description">
+                                {{ $blog->excerpt }}
+                            </p>
+
+                            <div class="blog__footer">
+                                <div class="blog__reaction">
+                                    {{ date('d M Y', strtotime($blog->created_at)) }}
+                                </div>
+                                <div class="blog__reaction">
+                                    <i class="bx bx-show"></i>
+                                    <span>{{ $blog->reads }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
             </div>
         </div>
-    </div>
+    </section>
+
+    {{-- Testimoni --}}
+    <section>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-10 col-xl-8 text-center">
+            <h3 class="mb-4">Testimonials</h3>
+            <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+              numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
+              quisquam eum porro a pariatur veniam.
+            </p>
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-md-4 mb-5 mb-md-0">
+            <div class="d-flex justify-content-center mb-4">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+                class="rounded-circle shadow-1-strong" width="150" height="150" />
+            </div>
+            <h5 class="mb-3">Maria Smantha</h5>
+            <h6 class="text-primary mb-3">Web Developer</h6>
+            <p class="px-xl-3">
+              <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic
+              tenetur.
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center mb-0">
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star-half-alt fa-sm text-warning"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-5 mb-md-0">
+            <div class="d-flex justify-content-center mb-4">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+                class="rounded-circle shadow-1-strong" width="150" height="150" />
+            </div>
+            <h5 class="mb-3">Lisa Cudrow</h5>
+            <h6 class="text-primary mb-3">Graphic Designer</h6>
+            <p class="px-xl-3">
+              <i class="fas fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum
+              exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid commodi.
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center mb-0">
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-0">
+            <div class="d-flex justify-content-center mb-4">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+                class="rounded-circle shadow-1-strong" width="150" height="150" />
+            </div>
+            <h5 class="mb-3">John Smith</h5>
+            <h6 class="text-primary mb-3">Marketing Specialist</h6>
+            <p class="px-xl-3">
+              <i class="fas fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio
+              dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.
+            </p>
+            <ul class="list-unstyled d-flex justify-content-center mb-0">
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-sm text-warning"></i>
+              </li>
+              <li>
+                <i class="far fa-star fa-sm text-warning"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
 
 @endsection
