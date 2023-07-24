@@ -11,9 +11,7 @@
                 class="fas fa-chart-line me-2"></i>{{ __('Booking') }}</a>
         <a href="{{ route('admin.gown_packages.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                 class="fas fa-paperclip me-2"></i>{{ __('Gown Package') }}</a>
-        <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                class="fas fa-shopping-cart me-2"></i>Store Mng</a>
-        <!-- Buat dropdown menggunakan komponen "dropdown" dari Bootstrap -->
+                <!-- Buat dropdown menggunakan komponen "dropdown" dari Bootstrap -->
         <div class="dropdown">
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold dropdown-toggle"
                 id="storeDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,7 +65,6 @@
                                 {{ __('Log Out') }}
                             </a>
                         </form>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </li>
             </ul>
