@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section><br><br>
 
     {{-- ==================== LOGOS ==================== --}}
         <span class="section__subtitle" style="text-align: center">Best Choice</span>
