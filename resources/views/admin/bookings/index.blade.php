@@ -22,7 +22,7 @@
                     <div class="card">
                         <div class="card-body p-0">
 
-                            <table class="table">
+                            <table class="table table-bordered table-hover table-striped mb-0 bg-white">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -57,9 +57,9 @@
                         </div>
                         <!-- /.card-body -->
 
-                        <div class="card-footer clearfix">
+                        {{-- <div class="card-footer clearfix">
                             {{ $bookings->links() }}
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>

@@ -23,13 +23,13 @@
                         <form method="post" action="{{ route('admin.categories.update', [$category]) }}">
                             @csrf
                             @method('put')
-                            <div class="form-group row border-bottom pb-4">
+                            <div class="form-group row bottom pb-4 ">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="name" value="{{ old('name', $category->name) }}" id="name" placeholder="example: Bali">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-success ">Save</button>
                         </form>
                     </div>
                 </div>
