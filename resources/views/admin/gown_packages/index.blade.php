@@ -55,9 +55,9 @@
                         </div>
                         <!-- /.card-body -->
 
-                        <div class="card-footer clearfix">
+                        {{-- <div class="card-footer clearfix">
                             {{ $gown_packages->links() }}
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>
