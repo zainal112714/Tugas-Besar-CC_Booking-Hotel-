@@ -58,7 +58,8 @@
                                         </h1>
                                         <p class="heros__description">
                                             Feel confident and beautiful on your big day,
-                                            <br />as every gown is meticulously maintained to ensure you create lasting memories.
+                                            <br />as every gown is meticulously maintained to ensure you create lasting
+                                            memories.
                                         </p>
                                     </div>
                                 </div>
@@ -81,10 +82,10 @@
     </section><br><br>
 
     {{-- ==================== LOGOS ==================== --}}
-        <span class="section__subtitle" style="text-align: center">Best Choice</span>
-        <h2 class="section__title" style="text-align: center">
-            Popular Designers
-        </h2>
+    <span class="section__subtitle" style="text-align: center">Best Choice</span>
+    <h2 class="section__title" style="text-align: center">
+        Popular Designers
+    </h2>
     <section class="logos" style="margin-top: 2rem; padding-bottom: 3rem">
         <div class="logos__container container grid">
             <div class="logos__img">
@@ -102,8 +103,8 @@
         </div>
     </section>
 
-       {{-- ==================== POPULAR ==================== --}}
-       <section class="section" id="popular">
+    {{-- ==================== POPULAR ==================== --}}
+    <section class="section" id="popular">
         <div class="container">
             <span class="section__subtitle" style="text-align: center">Best Choice</span>
             <h2 class="section__title" style="text-align: center">
@@ -147,7 +148,8 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                <img class="img-fluid position-absolute w-100 h-100" src="{{ Vite::asset('resources/images/au.png') }}" alt="" />
+                        <img class="img-fluid position-absolute w-100 h-100"
+                            src="{{ Vite::asset('resources/images/au.png') }}" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -155,16 +157,19 @@
                     <h1 class="mb-4">Welcome to MarieLocation</h1>
                     <p class="mb-4"> The ultimate destination for renting elegant and breathtaking bridal gowns.
                         We are a bridal gown rental service dedicated to helping you fulfill your dream of a perfect wedding
-                        by providing an array of stunning gown options. Our vision is to offer the best and most convenient bridal gown
+                        by providing an array of stunning gown options. Our vision is to offer the best and most convenient
+                        bridal gown
                         rental experience for brides-to-be. We understand that every bride has unique dreams and desires
-                        to look stunning on their special day. Therefore, we offer a diverse selection of bridal gowns from top designers
+                        to look stunning on their special day. Therefore, we offer a diverse selection of bridal gowns from
+                        top designers
                         that can be chosen to match your style and preferences.</p>
                 </div>
             </div>
         </div>
     </div>
+    {{-- end about us --}}
 
-
+    {{-- The Best Gowns --}}
     <section class="blog section" id="blog">
         <div class="blog__container container">
             <span class="section__subtitle" style="text-align: center">Our Blog</span>
@@ -209,109 +214,109 @@
     {{-- Testimoni --}}
     <section>
         <div class="row d-flex justify-content-center">
-          <div class="col-md-10 col-xl-8 text-center">
-            <h3 class="mb-4">Testimonials</h3>
-            <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-              numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-              quisquam eum porro a pariatur veniam.
-            </p>
-          </div>
+            <div class="col-md-10 col-xl-8 text-center">
+                <h3 class="mb-4">Testimonials</h3>
+                <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+                    numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
+                    quisquam eum porro a pariatur veniam.
+                </p>
+            </div>
         </div>
 
         <div class="row text-center">
-          <div class="col-md-4 mb-5 mb-md-0">
-            <div class="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-                class="rounded-circle shadow-1-strong" width="150" height="150" />
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+                        class="rounded-circle shadow-1-strong" width="150" height="150" />
+                </div>
+                <h5 class="mb-3">Maria Smantha</h5>
+                <h6 class="text-primary mb-3">Web Developer</h6>
+                <p class="px-xl-3">
+                    <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic
+                    tenetur.
+                </p>
+                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star-half-alt fa-sm text-warning"></i>
+                    </li>
+                </ul>
             </div>
-            <h5 class="mb-3">Maria Smantha</h5>
-            <h6 class="text-primary mb-3">Web Developer</h6>
-            <p class="px-xl-3">
-              <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic
-              tenetur.
-            </p>
-            <ul class="list-unstyled d-flex justify-content-center mb-0">
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star-half-alt fa-sm text-warning"></i>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 mb-5 mb-md-0">
-            <div class="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
-                class="rounded-circle shadow-1-strong" width="150" height="150" />
+            <div class="col-md-4 mb-5 mb-md-0">
+                <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+                        class="rounded-circle shadow-1-strong" width="150" height="150" />
+                </div>
+                <h5 class="mb-3">Lisa Cudrow</h5>
+                <h6 class="text-primary mb-3">Graphic Designer</h6>
+                <p class="px-xl-3">
+                    <i class="fas fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum
+                    exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid commodi.
+                </p>
+                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                </ul>
             </div>
-            <h5 class="mb-3">Lisa Cudrow</h5>
-            <h6 class="text-primary mb-3">Graphic Designer</h6>
-            <p class="px-xl-3">
-              <i class="fas fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum
-              exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid commodi.
-            </p>
-            <ul class="list-unstyled d-flex justify-content-center mb-0">
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 mb-0">
-            <div class="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-                class="rounded-circle shadow-1-strong" width="150" height="150" />
+            <div class="col-md-4 mb-0">
+                <div class="d-flex justify-content-center mb-4">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+                        class="rounded-circle shadow-1-strong" width="150" height="150" />
+                </div>
+                <h5 class="mb-3">John Smith</h5>
+                <h6 class="text-primary mb-3">Marketing Specialist</h6>
+                <p class="px-xl-3">
+                    <i class="fas fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio
+                    dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.
+                </p>
+                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-warning"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star fa-sm text-warning"></i>
+                    </li>
+                </ul>
             </div>
-            <h5 class="mb-3">John Smith</h5>
-            <h6 class="text-primary mb-3">Marketing Specialist</h6>
-            <p class="px-xl-3">
-              <i class="fas fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio
-              dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.
-            </p>
-            <ul class="list-unstyled d-flex justify-content-center mb-0">
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-warning"></i>
-              </li>
-              <li>
-                <i class="far fa-star fa-sm text-warning"></i>
-              </li>
-            </ul>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <div class="container-xxl py-5">
+    <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h2 class="section-title text-center text-primary px-3">Our</h2>
@@ -321,13 +326,16 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ Vite::asset('resources/images/ltf.png') }}" alt="" >
+                            <img class="img-fluid" src="{{ Vite::asset('resources/images/ltf.png') }}" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -343,9 +351,12 @@
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -361,9 +372,12 @@
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -379,9 +393,12 @@
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -394,5 +411,4 @@
         </div>
     </div>
     <!-- Team End -->
-
 @endsection

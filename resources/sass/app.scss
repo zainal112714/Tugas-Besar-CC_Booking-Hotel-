@@ -682,18 +682,14 @@ body.dark-theme {
     row-gap: 2.5rem;
 }
 
+
 .footer__logo {
-    color: var(--first-color);
+    color: rgb(237, 22, 237);
     font-size: 1.5rem;
     font-weight: $font-semi-bold;
     display: inline-flex;
     align-items: center;
     margin-bottom: 0.75rem;
-}
-
-.footer__logo i {
-    font-size: 1.25rem;
-    color: var(--second-color);
 }
 
 .footer__description,

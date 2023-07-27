@@ -40,7 +40,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $booking->name }}</td>
                                         <td>{{ $booking->email }}</td>
-                                        <td>{{ $booking->number_phone }}</td>
+                                        <td><a href="https://api.whatsapp.com/send?phone={{ $booking->number_phone }}&text=Saya%20melihat%20promo%2075%%di%20website."><i class="bi bi-whatsapp"></i></a> </td>
                                         <td>{{ $booking->date }}</td>
                                         <td>{{ $booking->gown_package->size }}</td>
                                         <td>

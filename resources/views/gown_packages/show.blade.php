@@ -8,17 +8,17 @@
           @foreach($gown_package->galleries as $gallery)
             <section class="islands swiper-slide">
               <img src="{{ Storage::url($gallery->images) }}" alt="" class="islands__bg" />
-
-              <div class="islands__container container">
-                <div class="islands__data">
-                  <h2 class="islands__subtitle">Explore</h2>
-                  <h1 class="islands__title">{{ $gallery->name }}</h1>
-                </div>
-              </div>
             </section>
           @endforeach
           </div>
-        </div>
+        </div><br>
+
+        <div class="islands__container container">
+            <div class="islands__data" style="text-align: center">
+              <h2 class="islands__subtitle">Explore</h2>
+              <h1 class="islands__title">{{ $gallery->name }}</h1>
+            </div>
+          </div>
 
         <!--========== CONTROLS ==========-->
         <div class="controls gallery-thumbs">

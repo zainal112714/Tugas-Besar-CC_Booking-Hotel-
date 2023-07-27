@@ -1,8 +1,8 @@
-<footer class="footer section">
+<footer class="footer section" id="footer">
     <div class="footer__container container grid">
         <div>
-            <a href="{{ route('homepage') }}" class="footer__logo">
-                G<i class="bx bxs-map"></i> Gown
+            <a href="{{ route('homepage') }}" class="footer__logo"><img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong px-3" width="80" height="80" alt="">
+                MarieLocation
             </a>
             <p class="footer__description">
                 Our vision is to help people find the <br />
