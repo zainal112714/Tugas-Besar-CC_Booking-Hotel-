@@ -25,13 +25,18 @@
                             <div class="form-group row border-bottom pb-4">
                                 <label for="type" class="col-sm-2 col-form-label">Type</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" name="type" value="{{ old('type') }}" id="type" placeholder="example: 4D5N">
+                                <input type="text" class="form-control" name="type" value="{{ old('type') }}" id="type" placeholder="example: Gaun/Dress">
                                 </div>
                             </div>
                             <div class="form-group row border-bottom pb-4">
                                 <label for="Size" class="col-sm-2 col-form-label">Size</label>
                                 <div class="col-sm-10">
-                                <input text="text" class="form-control" id="Size" name="size" value="{{ old('size') }}" placeholder="example: Bali, Indonesia">
+                                    <select class="form-control" id="Size" name="size">
+                                        <option value="" disabled selected style="display:none;">Select Size</option>
+                                        <option value="XL">XL</option>
+                                        <option value="L">L</option>
+                                        <option value="M">M</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row border-bottom pb-4">

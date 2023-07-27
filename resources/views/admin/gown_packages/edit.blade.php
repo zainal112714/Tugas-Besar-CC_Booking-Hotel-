@@ -60,14 +60,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 py-1">
                     <div class="card p-3">
                         <form method="post" action="{{ route('admin.gown_packages.galleries.store', [$gown_package]) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row border-bottom pb-4">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="example: Kuta">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="example: Dress">
                                 </div>
                             </div>
 
@@ -80,7 +80,7 @@
 
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>
-                    </div>
+                    </div><br>
 
                     <div class="card p-3">
                         <form method="post" action="{{ route('admin.gown_packages.update', [$gown_package]) }}">
@@ -95,7 +95,12 @@
                             <div class="form-group row border-bottom pb-4">
                                 <label for="Size" class="col-sm-2 col-form-label">Size</label>
                                 <div class="col-sm-10">
-                                <input text="text" class="form-control" id="Size" name="size" value="{{ old('size', $gown_package->size) }}" placeholder="example: Bali, Indonesia">
+                                    <select class="form-control" id="Size" name="size">
+                                        <option value="" disabled selected style="display:none;">Select Size</option>
+                                        <option value="XL"{{ $gown_package->size === 'XL' ? ' selected' : '' }}>XL</option>
+                                        <option value="L"{{ $gown_package->size === 'L' ? ' selected' : '' }}>L</option>
+                                        <option value="M"{{ $gown_package->size === 'M' ? ' selected' : '' }}>M</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row border-bottom pb-4">

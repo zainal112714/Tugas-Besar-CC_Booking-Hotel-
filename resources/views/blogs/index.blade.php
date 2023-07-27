@@ -7,24 +7,23 @@
           <div class="swiper-wrapper">
             <section class="islands swiper-slide">
               <img
-                src="{{ asset('frontend/assets/img/6.png') }}"
+              src="{{ Vite::asset('resources/images/pg1.png') }}"
                 alt=""
                 class="islands__bg"
               />
-
-              <div class="islands__container container">
-                <div class="islands__data">
-                  <h2 class="islands__subtitle">Our</h2>
-                  <h1 class="islands__title">Blog</h1>
-                </div>
-              </div>
             </section>
           </div>
         </div>
-      </section>
+      </section><br>
+
+      <div class="islands__container container">
+        <div class="islands__data" style="text-align: center">
+          <h2 class="islands__subtitle" >Our Blog</h2>
+        </div>
+      </div>
 
       <!-- blog -->
-      <section class="blog section" id="blog">
+      <section class="blog section" id="blog" style="padding:4%">
         <div class="blog__container container">
           <span class="section__subtitle" style="text-align: center"
             >All Blog</span

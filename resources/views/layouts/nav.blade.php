@@ -1,7 +1,7 @@
 {{-- ==================== HEADER ==================== --}}
 <header class="header" id="header">
     <nav class="nav container">
-        <a href="{{ route('homepage') }}" class="nav__logo" id="nav__logo">MarieLocation </a>
+        <a href="{{ route('homepage') }}" class="nav__logo" id="nav__logo"><img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong px-3" width="80" height="80" alt=""> MarieLocation </a>
 
         <div class="nav__menu">
             <ul class="nav__list" style='margin: 0rem; padding-left:0px'>
