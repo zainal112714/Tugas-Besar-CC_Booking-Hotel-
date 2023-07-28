@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CategoryRequest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -15,8 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = category::paginate(10);
-
+        $categories = Category::paginate(10);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -31,25 +30,29 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-        if($request->validated()) {
-            $slug = Str::slug($request->name, '-');
-            category::create($request->validated() + ['slug' => $slug]);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'name.string' => 'Nama harus berupa teks.',
+            'name.max' => 'Nama tidak boleh lebih dari :max karakter.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        Category::create([
+            'name' => $request->input('name'),
+            'slug' => Str::slug($request->input('name'), '-'),
+        ]);
+
         return redirect()->route('admin.categories.index')->with([
-            'message' => 'Success Created !',
+            'message' => 'Success Created!',
             'alert-type' => 'success'
         ]);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -63,15 +66,27 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
-        if($request->validated()) {
-            $slug = Str::slug($request->name, '-');
-            $category->update($request->validated() + ['slug' => $slug]);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'name.string' => 'Nama harus berupa teks.',
+            'name.max' => 'Nama tidak boleh lebih dari :max karakter.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $category->update([
+            'name' => $request->input('name'),
+            'slug' => Str::slug($request->input('name'), '-'),
+        ]);
+
         return redirect()->route('admin.categories.index')->with([
-            'message' => 'Success Updated !',
+            'message' => 'Success Updated!',
             'alert-type' => 'info'
         ]);
     }
@@ -83,8 +98,8 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->back()->with([
-            'message' => 'Success Deleted !',
+        return redirect()->route('admin.categories.index')->with([
+            'message' => 'Success Deleted!',
             'alert-type' => 'danger'
         ]);
     }

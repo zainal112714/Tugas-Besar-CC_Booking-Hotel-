@@ -31,7 +31,7 @@
     {{-- ==================== FOOTER ==================== --}}
     @include('layouts.footer')
 
-    <!--========== SCROLL UP ==========-->
+    {{-- <!--========== SCROLL UP ==========--> --}}
     <a href="#" class="scrollup" id="scroll-up">
         <i class="bx bx-chevrons-up"></i>
     </a>
@@ -39,12 +39,12 @@
     {{-- =============== SCROLLREVEAL =============== --}}
     <script src="{{ asset('frontend/assets/libraries/scrollreveal.min.js') }}"></script>
 
-    <!--=============== SWIPER JS ===============-->
+    {{-- <!--=============== SWIPER JS ===============--> --}}
     <script src="{{ asset('frontend/assets/libraries/swiper-bundle.min.js') }}"></script>
 
-    <!--=============== MAIN JS ===============-->
+    {{-- <!--=============== MAIN JS ===============--> --}}
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-    <!--=============== MAIN JS ===============-->
+    {{-- <!--=============== MAIN JS ===============--> --}}
     <link rel="stylesheet" href="{{ asset('css/testi.css') }}">
 
     @stack('script-alt')

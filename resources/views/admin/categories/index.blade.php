@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Content Header (Page header) -->
+    {{--  Content Header (Page header)  --}}
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -9,22 +9,20 @@
                     <h1 class="m-0">{{ __('Category Blog') }}</h1>
                     <a href="{{ route('admin.categories.create') }}" class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i>
                     </a>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
+    {{--  Main content  --}}
     <div class="content">
         <div class="container-fluid">
-            <div class="row" id="categoriTable">
+            <div class="row">
                 <div class="col-lg-12">
-
                     <div class="card">
                         <div class="card-body p-0">
 
-                            <table class="table table-bordered table-hover table-striped mb-0 bg-white" id="categoryTable">
+                            <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable" id="categoryTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -54,23 +52,17 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
-
-                        {{-- <div class="card-footer clearfix">
-                         {{ $categories->links() }}
-                        </div> --}}
                     </div>
-
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    @push('scripts')
-        <script type="module">
-        $(document).ready(function() {
-            $('#categoriTable').DataTable();
-        });
-    </script>
-    @endpush
 @endsection
+
+@push('scripts')
+<script type="module">
+    $(document).ready(function() {
+        $('#categoryTable').DataTable();
+    });
+</script>
+@endpush

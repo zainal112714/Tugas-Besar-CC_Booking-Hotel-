@@ -1,40 +1,86 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-12 d-flex justify-content-between">
-                    <h1 class="m-0">{{ __('Form Create') }}</h1>
-                    <a href="{{ route('admin.categories.index') }}" class="btn btn-primary"> <i class="fa fa-arrow-left"></i> </a>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+<div class="container-sm mt-5">
+    <form action="{{ route('admin.bookings.store') }}" method="POST">
+        @csrf
+        <div class="row justify-content-center">
+            <div class="p-5 bg-light rounded-3 border col-xl-6">
 
-    <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card p-3">
-                        <form method="post" action="{{ route('admin.categories.store') }}">
-                            @csrf 
-                            <div class="form-group row border-bottom pb-4">
-                                <label for="name" class="col-sm-2 col-form-label">Name</label>
-                                <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="example: Bali">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-success">Save</button>
-                        </form>
+                <div class="mb-4 text-center">
+                    <h2 class="fw-bold">Create Booking</h2>
+                </div>
+                <hr>
+
+                <div class="mb-3">
+                    <label for="gown_package_id" class="form-label">Select Gown Package</label>
+                    <select class="form-select @error('gown_package_id') is-invalid @enderror"
+                        name="gown_package_id" id="gown_package_id">
+                        <option value="">Select Gown Package</option>
+                        @foreach ($gown_packages as $gown_package)
+                        <option value="{{ $gown_package->id }}"
+                            {{ old('gown_package_id') == $gown_package->id ? 'selected' : '' }}>
+                            {{ $gown_package->type }}</option>
+                        @endforeach
+                    </select>
+                    @error('gown_package_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
+                            id="name" value="{{ old('name') }}" placeholder="Enter Name">
+                        @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email"
+                            id="email" value="{{ old('email') }}" placeholder="Enter Email">
+                        @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="number_phone" class="form-label">Phone Number</label>
+                        <input class="form-control @error('number_phone') is-invalid @enderror" type="text"
+                            name="number_phone" id="number_phone" value="{{ old('number_phone') }}"
+                            placeholder="Enter Phone Number">
+                        @error('number_phone')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label">Date</label>
+                        <input class="form-control @error('date') is-invalid @enderror" type="date" name="date"
+                            id="date" value="{{ old('date') }}">
+                        @error('date')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <a href="{{ route('admin.bookings.index') }}" class="btn btn-secondary btn-lg w-100">
+                            <i class="bi bi-arrow-left-circle me-2"></i> Cancel</a>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary btn-lg w-100"><i class="bi bi-check-circle me-2"></i>
+                            Save</button>
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+        </div>
+    </form>
+</div>
 @endsection
