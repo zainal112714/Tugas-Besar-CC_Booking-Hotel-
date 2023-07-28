@@ -35,8 +35,8 @@
         <div class="d-flex" id="wrapper">
 @include('layouts.nav1')
 @yield('content')
-@stack('scripts')
 @vite('resources/js/app.js')
+@stack('scripts')
 
 </div>
 

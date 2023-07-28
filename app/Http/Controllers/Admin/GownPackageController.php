@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\GownPackageRequest;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Gallery;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\GownPackage;
 use App\Http\Controllers\Controller;
-
 
 class GownPackageController extends Controller
 {
@@ -33,15 +32,54 @@ class GownPackageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(GownPackageRequest $request)
+    public function store(Request $request)
     {
-        if($request->validated()) {
-            $slug = Str::slug($request->size, '-');
-            $gown_package = GownPackage::create($request->validated() + ['slug' => $slug ]);
+        // Mendefinisikan pesan kesalahan untuk validasi input
+        $messages = [
+            'required' => ':attribute harus diisi.',
+        ];
+
+        // Mendefinisikan atribut untuk pesan kesalahan
+        $attributes = [
+            'type' => 'Tipe',
+            'size' => 'Ukuran',
+            'price' => 'Harga',
+            'description' => 'Deskripsi',
+        ];
+
+        // Validasi input menggunakan Validator
+        $validator = Validator::make($request->all(), [
+            'type' => 'required|string',
+            'size' => 'required|string',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+        ], $messages);
+
+        // Menggunakan atribut untuk pesan kesalahan
+        $validator->setAttributeNames($attributes);
+
+        // Jika terdapat kesalahan validasi, kembalikan kembali ke halaman sebelumnya dengan pesan kesalahan dan input yang diisi sebelumnya
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Membuat slug yang unik
+        $slug = Str::slug($request->input('type'), '-');
+        $count = GownPackage::where('slug', $slug)->count();
+        if ($count > 0) {
+            $slug = $slug . '-' . Str::random(5); // Tambahkan string acak ke slug jika tidak unik
+        }
+
+        $gown_package = GownPackage::create([
+            'type' => $request->input('type'),
+            'size' => $request->input('size'),
+            'price' => $request->input('price'),
+            'description' => $request->input('description'),
+            'slug' => $slug
+        ]);
+
         return redirect()->route('admin.gown_packages.edit', [$gown_package])->with([
-            'message' => 'Success Created !',
+            'message' => 'Success Created!',
             'alert-type' => 'success'
         ]);
     }
@@ -59,15 +97,54 @@ class GownPackageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(GownPackageRequest $request, GownPackage $gown_package)
+    public function update(Request $request, GownPackage $gown_package)
     {
-        if($request->validated()) {
-            $slug = Str::slug($request->size, '-');
-            $gown_package->update($request->validated() + ['slug' => $slug]);
+        // Mendefinisikan pesan kesalahan untuk validasi input
+        $messages = [
+            'required' => ':attribute harus diisi.',
+        ];
+
+        // Mendefinisikan atribut untuk pesan kesalahan
+        $attributes = [
+            'type' => 'Tipe',
+            'size' => 'Ukuran',
+            'price' => 'Harga',
+            'description' => 'Deskripsi',
+        ];
+
+        // Validasi input menggunakan Validator
+        $validator = Validator::make($request->all(), [
+            'type' => 'required|string',
+            'size' => 'required|string',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+        ], $messages);
+
+        // Menggunakan atribut untuk pesan kesalahan
+        $validator->setAttributeNames($attributes);
+
+        // Jika terdapat kesalahan validasi, kembalikan kembali ke halaman sebelumnya dengan pesan kesalahan dan input yang diisi sebelumnya
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Membuat slug yang unik
+        $slug = Str::slug($request->input('type'), '-');
+        $count = GownPackage::where('slug', $slug)->where('id', '!=', $gown_package->id)->count();
+        if ($count > 0) {
+            $slug = $slug . '-' . Str::random(5); // Tambahkan string acak ke slug jika tidak unik
+        }
+
+        $gown_package->update([
+            'type' => $request->input('type'),
+            'size' => $request->input('size'),
+            'price' => $request->input('price'),
+            'description' => $request->input('description'),
+            'slug' => $slug
+        ]);
+
         return redirect()->route('admin.gown_packages.index')->with([
-            'message' => 'Success Updated !',
+            'message' => 'Success Updated!',
             'alert-type' => 'info'
         ]);
     }
@@ -80,7 +157,7 @@ class GownPackageController extends Controller
         $gown_package->delete();
 
         return redirect()->back()->with([
-            'message' => 'Success Deleted !',
+            'message' => 'Success Deleted!',
             'alert-type' => 'danger'
         ]);
     }

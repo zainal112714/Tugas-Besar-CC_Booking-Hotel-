@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Content Header (Page header) -->
+    {{-- <!-- Content Header (Page header) --> --}}
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 justify-content-between d-flex">
                     <h1 class="m-0">{{ __('Gown Package') }}</h1>
                     <a href="{{ route('admin.Gown_packages.create') }}" class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> </a>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div><
     </div>
-    <!-- /.content-header -->
+    {{-- <!-- /.content-header --> --}}
 
-    <!-- Main content -->
+    {{-- <!-- Main content --> --}}
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -53,17 +53,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
-
-                        <div class="card-footer clearfix">
-                            {{ $gown_packages->links() }}
-                        </div>
                     </div>
-
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
 @endsection

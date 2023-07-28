@@ -31,7 +31,7 @@ Route::group(['middleware' => ['is_admin','auth'], 'prefix' => 'admin', 'as' => 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // booking
-    Route::resource('bookings', BookingController::class)->only(['index', 'destroy']);
+    Route::resource('bookings', BookingController::class);
     // gown packages
     Route::resource('gown_packages', GownPackageController::class)->except('show');
     Route::resource('gown_packages.galleries', GalleryController::class)->except(['create', 'index','show']);

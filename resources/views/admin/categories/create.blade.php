@@ -25,7 +25,10 @@
                             <div class="form-group row border-bottom pb-4">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="example: Gaun Mermaid, Gaun A-Line, dst">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" id="name" placeholder="example: Gaun Mermaid, Gaun A-Line, dst">
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
@@ -33,8 +36,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div><
     </div>
-    <!-- /.content -->
 @endsection
