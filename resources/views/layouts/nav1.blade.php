@@ -1,7 +1,7 @@
 @php
     $currentRouteName = Route::currentRouteName();
 @endphp
-{{-- <!-- Sidebar --> --}}
+{{-- Sidebar --}}
 <div class="bg-white" id="sidebar-wrapper">
     <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong" width="50" height="50" alt=""> AdminGown</div>
     <div class="list-group list-group-flush my-3">

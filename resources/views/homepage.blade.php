@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-    {{-- ==================== HOME ==================== --}}
+    {{-- Home --}}
     <section>
         <div class="swiper-container">
             <div>
@@ -81,7 +81,7 @@
         </div>
     </section><br><br>
 
-    {{-- ==================== LOGOS ==================== --}}
+    {{-- Logo --}}
     <span class="section__subtitle" style="text-align: center">Best Choice</span>
     <h2 class="section__title" style="text-align: center">
         Popular Designers
@@ -103,7 +103,7 @@
         </div>
     </section>
 
-    {{-- ==================== POPULAR ==================== --}}
+    {{-- Popular --}}
     <section class="section" id="popular">
         <div class="container">
             <span class="section__subtitle" style="text-align: center">Best Choice</span>
@@ -143,7 +143,7 @@
         </div>
     </section>
 
-    {{-- ==================== ABOUT US ==================== --}}
+    {{-- About Us --}}
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
@@ -412,5 +412,5 @@
             </div>
         </div>
     </div>
-    {{-- <!-- Team End --> --}}
+    {{-- Team End  --}}
 @endsection

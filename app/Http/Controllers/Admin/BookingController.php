@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\GownPackage;
 use PDF;
 use RealRashid\SweetAlert\Facades\Alert;
+use DNS1D;
 
 class BookingController extends Controller
 {
@@ -17,6 +18,12 @@ class BookingController extends Controller
     public function index()
     {
         $bookings = Booking::with('gown_package')->paginate(10);
+
+        // Generate the barcode for each booking
+        foreach ($bookings as $booking) {
+            $barcodeText = 'BOOK-' . rand(10000, 99999);
+            $booking->barcodeImage = DNS1D::getBarcodePNG($barcodeText, 'C128');
+        }
 
         return view('admin.bookings.index', compact('bookings'));
     }
@@ -52,16 +59,20 @@ class BookingController extends Controller
             'date.date' => 'Tanggal harus berupa format tanggal yang valid.',
         ]);
 
+        // Generate barcode
+        $barcodeText = 'BOOK-' . rand(10000, 99999); // Kode booking yang diambil dari data booking atau dapat digenerate sesuai kebutuhan
+        $barcodeImage = DNS1D::getBarcodePNG($barcodeText, 'C128');
+
         Booking::create([
             'gown_package_id' => $request->input('gown_package_id'),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'number_phone' => $request->input('number_phone'),
             'date' => $request->input('date'),
+            'barcode' => $barcodeImage, // Simpan barcode ke dalam kolom 'barcode'
         ]);
 
-        Alert::success('Added Successfully', ' Booking Data Added
-        Successfully.');
+        Alert::success('Added Successfully', 'Booking Data Added Successfully.');
 
         return redirect()->route('admin.bookings.index')->with([
             'message' => 'Pemesanan berhasil dibuat!',
