@@ -41,7 +41,7 @@
                                         <option value="XL" @if(old('size') == 'XL') selected @endif>XL</option>
                                         <option value="L" @if(old('size') == 'L') selected @endif>L</option>
                                         <option value="M" @if(old('size') == 'M') selected @endif>M</option>
-                                        <option value="M" @if(old('size') == 'S') selected @endif>M</option>
+                                        <option value="S" @if(old('size') == 'S') selected @endif>S</option>
                                     </select>
                                     @error('size')
                                         <span class="invalid-feedback" role="alert">

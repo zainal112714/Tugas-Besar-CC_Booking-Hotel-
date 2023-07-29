@@ -12,12 +12,12 @@
         </div>
       </section><br>
 
-      <div class="islands__container container">
+      {{-- <div class="islands__container container">
         <div class="islands__data" style="text-align: center">
           <h2 class="islands__subtitle">Explore</h2>
           <h1 class="islands__title">Gown Packages</h1>
         </div>
-      </div>
+      </div> --}}
 
       {{-- <!--==================== POPULAR ====================--> --}}
       <section class="section" id="popular" style="padding:4%">

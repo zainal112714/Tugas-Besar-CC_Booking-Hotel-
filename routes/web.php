@@ -30,8 +30,11 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => ['is_admin','auth'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    // Route untuk export PDF data booking
+    Route::get('bookings/export-pdf', [BookingController::class, 'exportPdf'])->name('bookings.exportPdf');
     // booking
     Route::resource('bookings', BookingController::class);
+
     // gown packages
     Route::resource('gown_packages', GownPackageController::class)->except('show');
     Route::resource('gown_packages.galleries', GalleryController::class)->except(['create', 'index','show']);
@@ -59,3 +62,5 @@ Route::get('contact', function() {
 })->name('contact');
 // booking
 Route::post('booking', [FrontendBookingController::class, 'store'])->name('booking.store');
+
+
