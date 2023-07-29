@@ -1,19 +1,18 @@
 @extends('layouts.guest')
 
 @section('content')
-    <section class="h-100" style="background-color: #eee;">
-        <div class="container py-5 h-100 ">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+    <section style="background-color: #eee;">
+        <div class="container " style="padding-bottom: 45px; padding-top: 40px ">
+            <div class="row d-flex justify-content-center align-items-center ">
                 <div class="col-xl-10">
                         <div class="row g-0">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" id='login'>
                                 <div class="card-body p-md-4 mx-md-3">
                                     <div class="text-center">
-                                        <img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong px-3" width="150" height="150" alt="">
+                                        <img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong px-3" width="180" height="150" alt="">
                                     </div>
                                     <br>
                                     <h3 class="mt-1 mb-5 pb-3 text-center">Welcome Admin Marielocation</h3>
-
                                     <form action="{{ route('login') }}" method="post">
                                         @csrf
 
@@ -37,7 +36,7 @@
 
                                         <div class="text-center pt-5 mb-6 pb-8">
                                             <button type="submit"
-                                                class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Log
+                                                class="btn btn-primary btn-block fa-lg .text-primary-emphasis mb-3">Log
                                                 in</button>
                                         </div>
                                     </form>

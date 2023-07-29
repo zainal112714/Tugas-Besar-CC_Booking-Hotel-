@@ -11,9 +11,17 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     {{-- <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}"> --}}
-    @vite('resources/sass/app.scss')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <style>
+        #login {
+            background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #f16a9e, #f2a2da);
+
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+        }
+
         .gradient-custom-2 {
             /* fallback for old browsers */
             background: #fccb90;
@@ -50,10 +58,9 @@
             @yield('content')
         </div>
     </div>
-    {{-- <!-- /.login-box --> --}}
-    @vite('resources/js/app.js')
-    {{-- <!-- Bootstrap 4 --> --}}
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
