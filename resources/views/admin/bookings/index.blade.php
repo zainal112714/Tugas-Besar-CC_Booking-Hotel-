@@ -7,13 +7,25 @@
             <div class="row mb-2">
                 <div class="col-sm-12 justify-content-between d-flex">
                     <h1 class="m-0">{{ __('Booking') }}</h1>
-                    <a href="{{ route('admin.bookings.create') }}" class="btn btn-primary btn-sm">
-                        <i class="bi bi-plus"></i> Add Booking
-                    </a>
                 </div>
             </div>
+            <div class="d-flex justify-content-end"> <!-- Menggunakan class justify-content-end untuk menggeser elemen ke kanan -->
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a href="{{ route('admin.bookings.exportPdf') }}" class="btn btn-outline-danger">
+                            <i class="bi bi-download me-1"></i> to PDF
+                        </a>
+                    </li>
+                    <li class="list-inline-item">|</li>
+                    <li class="list-inline-item">
+                        <a href="{{ route('admin.bookings.create') }}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-plus"></i> Add Booking
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </div><br>
 
     <!-- Main content -->
     <div class="content">

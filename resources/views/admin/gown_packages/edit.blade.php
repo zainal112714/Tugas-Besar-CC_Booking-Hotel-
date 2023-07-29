@@ -106,6 +106,7 @@
                                         <option value="XL"{{ old('size', $gown_package->size) === 'XL' ? ' selected' : '' }}>XL</option>
                                         <option value="L"{{ old('size', $gown_package->size) === 'L' ? ' selected' : '' }}>L</option>
                                         <option value="M"{{ old('size', $gown_package->size) === 'M' ? ' selected' : '' }}>M</option>
+                                        <option value="S"{{ old('size', $gown_package->size) === 'S' ? ' selected' : '' }}>S</option>
                                     </select>
                                     @error('size')
                                         <small class="text-danger">{{ $message }}</small>

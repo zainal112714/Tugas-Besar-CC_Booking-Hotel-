@@ -6,6 +6,7 @@ use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\GownPackage;
+use PDF;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BookingController extends Controller
@@ -141,4 +142,20 @@ class BookingController extends Controller
 
         return redirect()->route('admin.bookings.index');
     }
+
+    public function exportPdf()
+    {
+        $bookings = Booking::all();
+
+        // Cek apakah data booking telah berhasil diambil
+        \Log::info('Data Booking:', $bookings->toArray()); // Log ke storage/logs/laravel.log
+
+        $pdf = PDF::loadView('admin.bookings.export_pdf', compact('bookings'));
+
+        return $pdf->download('bookings.pdf');
+    }
+
 }
+
+
+
