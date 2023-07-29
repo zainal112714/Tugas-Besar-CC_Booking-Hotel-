@@ -8,7 +8,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator; 
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BlogController extends Controller
 {
@@ -74,6 +75,9 @@ class BlogController extends Controller
             'category_id' => $request->input('category_id'),
             'slug' => $slug,
         ]);
+
+        Alert::success('Added Successfully', ' Blog Data Added
+        Successfully.');
 
         return redirect()->route('admin.blogs.index')->with([
             'message' => 'Berhasil membuat postingan!',
@@ -151,6 +155,9 @@ class BlogController extends Controller
             ]);
         }
 
+        Alert::success('Changed Successfully', ' Blog Data Change
+        Successfully.');
+
         return redirect()->route('admin.blogs.index')->with([
             'message' => 'Berhasil memperbarui postingan!',
             'alert-type' => 'info'
@@ -164,6 +171,9 @@ class BlogController extends Controller
     {
         File::delete('storage/'. $blog->image);
         $blog->delete();
+
+        Alert::success('Deleted Successfully', ' Blog Data Delete
+        Successfully.');
 
         return redirect()->back()->with([
             'message' => 'Berhasil menghapus postingan!',

@@ -36,6 +36,7 @@
 @include('layouts.nav1')
 @yield('content')
 @vite('resources/js/app.js')
+@include('sweetalert::alert')
 @stack('scripts')
 
 </div>
