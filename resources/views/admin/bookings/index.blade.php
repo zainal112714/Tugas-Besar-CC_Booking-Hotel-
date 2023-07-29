@@ -43,6 +43,7 @@
                                         <th>Number Phone</th>
                                         <th>Date</th>
                                         <th>Gown Package</th>
+                                        <th>Code_Resi</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -59,6 +60,7 @@
                                             </td>
                                             <td>{{ $booking->date }}</td>
                                             <td>{{ $booking->gown_package->size }}</td>
+                                            <td> <img src="data:image/png;base64,{{ $booking->barcode }}" alt="Barcode"></td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Action Buttons">
                                                     <a href="{{ route('admin.bookings.show', $booking->id) }}" class="btn btn-sm btn-info">
@@ -87,6 +89,7 @@
         </div>
     </div>
 @endsection
+
 @push('scripts')
 <script type="module">
     $(document).ready(function() {
