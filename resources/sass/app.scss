@@ -4,6 +4,7 @@
 // Variables
 @import 'variables';
 
+
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
@@ -1158,6 +1159,7 @@ body.dark-theme {
         padding-top: 2rem;
     }
 }
+
 
 @import "blog-detail";
 @import "detail-package";

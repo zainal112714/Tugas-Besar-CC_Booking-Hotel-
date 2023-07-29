@@ -1,62 +1,63 @@
 @extends('layouts.guest')
 
 @section('content')
-    <div class="card-body login-card-body">
-        <p class="login-box-msg">{{ __('Login') }}</p>
+    <section style="background-color: #eee;">
+        <div class="container " style="padding-bottom: 45px; padding-top: 40px ">
+            <div class="row d-flex justify-content-center align-items-center ">
+                <div class="col-xl-10">
+                        <div class="row g-0">
+                            <div class="col-lg-6" id='login'>
+                                <div class="card-body p-md-4 mx-md-3">
+                                    <div class="text-center">
+                                        <img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong px-3" width="180" height="150" alt="">
+                                    </div>
+                                    <br>
+                                    <h3 class="mt-1 mb-5 pb-3 text-center">Welcome Admin Marielocation</h3>
+                                    <form action="{{ route('login') }}" method="post">
+                                        @csrf
 
-        <form action="{{ route('login') }}" method="post">
-            @csrf
+                                        <p>Please login to your account!</p>
 
-            <div class="input-group mb-3">
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" required autofocus>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-envelope"></span>
-                    </div>
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example11"><b>Username</b></label>
+                                            <input type="email" name="email" id="form2Example11" class="form-control"
+                                                placeholder="Phone number or email addres" required autofocus />
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example22"><b>Password</b></label>
+                                            <input type="password" name="password" id="form2Example22" class="form-control" placeholder="Password..." required autofocus />
+                                        </div>
+
+                                        <div class="text-center pt-5 mb-6 pb-8">
+                                            <button type="submit"
+                                                class="btn btn-primary btn-block fa-lg .text-primary-emphasis mb-3">Log
+                                                in</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h4 class="mb-4">Visi Misi Marie Location</h4>
+                                    <p class="small mb-0">Menjadi penyedia layanan penyewaan gaun dan pakaian pesta terkemuka yang
+                                        memberikan pengalaman berbelanja yang unik dan memuaskan untuk setiap pelanggan, serta
+                                        menjadi bagian tak tergantikan dalam momen-momen istimewa dalam hidup mereka. Marie Location mencerminkan
+                                        komitmen untuk memberikan pengalaman belanja yang istimewa, berkualitas, dan ramah lingkungan,
+                                        serta menjadi rekan yang andal dalam momen-momen penting dalam kehidupan pelanggan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
-                @error('email')
-                <span class="error invalid-feedback">
-                    {{ $message }}
-                </span>
-                @enderror
             </div>
-
-            <div class="input-group mb-3">
-                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-lock"></span>
-                    </div>
-                </div>
-                @error('password')
-                <span class="error invalid-feedback">
-                    {{ $message }}
-                </span>
-                @enderror
-            </div>
-
-            <div class="row">
-                <div class="col-8">
-                    <div class="icheck-primary">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-4">
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
-                </div>
-                <!-- /.col -->
-            </div>
-        </form>
-
-        @if (Route::has('password.request'))
-            <p class="mb-1">
-                <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
-            </p>
-        @endif
-    </div>
-    <!-- /.login-card-body -->
+        </div>
+    </section>
 @endsection

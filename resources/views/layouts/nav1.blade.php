@@ -1,17 +1,18 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
 {{-- <!-- Sidebar --> --}}
-
 <div class="bg-white" id="sidebar-wrapper">
     <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="{{ Vite::asset('resources/images/logo.png') }}" class="rounded-circle shadow-1-strong" width="50" height="50" alt=""> AdminGown</div>
     <div class="list-group list-group-flush my-3">
-        <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action bg-transparent second-text active"><i
-                class="fas fa-tachometer-alt me-2"></i>{{ __('Dashboard') }}</a>
-        <a href="{{ route('admin.users.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+        <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action bg-transparent second-text nav-link @if($currentRouteName == 'admin.dashboard') active @endif"><i
+                class="fas fa-tachometer-alt me-2" ></i>{{ __('Dashboard') }}</a>
+        <a href="{{ route('admin.users.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold @if($currentRouteName == 'admin.users.index') active @endif"><i
                 class="fas fa-project-diagram me-2"></i>{{ __('Users') }}</a>
-        <a href="{{ route('admin.bookings.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+        <a href="{{ route('admin.bookings.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold @if($currentRouteName == 'admin.bookings.index') active @endif"><i
                 class="fas fa-chart-line me-2"></i>{{ __('Booking') }}</a>
-        <a href="{{ route('admin.gown_packages.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+        <a href="{{ route('admin.gown_packages.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold @if($currentRouteName == 'admin.gown_packages.index') active @endif"><i
                 class="fas fa-paperclip me-2"></i>{{ __('Gown Package') }}</a>
-                <!-- Buat dropdown menggunakan komponen "dropdown" dari Bootstrap -->
         <div class="dropdown">
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold dropdown-toggle"
                 id="storeDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,13 +27,11 @@
                 </a>
             </div>
         </div>
-        <!-- /#dropdown -->
-
     </div>
 </div>
-<!-- /#sidebar-wrapper -->
 
-<!-- Page Content -->
+
+{{-- nav --}}
 <div id="page-content-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
         <div class="d-flex align-items-center">
@@ -56,7 +55,6 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('admin.profile.show') }}"><i class="mr-2 fas fa-file"></i>
                             {{ __('My profile') }}</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a href="{{ route('logout') }}" class="dropdown-item"

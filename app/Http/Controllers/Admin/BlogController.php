@@ -8,7 +8,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use App\Http\Requests\Admin\BlogRequest;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BlogController extends Controller
 {
@@ -35,19 +36,51 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BlogRequest $request)
+    public function store(Request $request)
     {
-        if($request->validated()) {
-            $image = $request->file('image')->store(
-                'blog/images', 'public'
-            );
-            $slug = Str::slug($request->title, '-');
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'excerpt' => 'required',
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg'],
+            'description' => 'required',
+            'category_id' => 'required'
+        ], [
+            'title.required' => 'Judul harus diisi.',
+            'excerpt.required' => 'Kutipan harus diisi.',
+            'image.required' => 'Gambar harus diisi.',
+            'image.image' => 'Gambar harus berupa file gambar.',
+            'image.mimes' => 'Gambar harus dalam format png, jpg, atau jpeg.',
+            'description.required' => 'Deskripsi harus diisi.',
+            'category_id.required' => 'Kategori harus dipilih.'
+        ]);
 
-            Blog::create($request->except('image') + ['slug' => $slug, 'image' => $image]);
+        if ($validator->fails()) {
+            return redirect()->route('admin.blogs.create')
+                             ->withErrors($validator)
+                             ->withInput()
+                             ->with([
+                                 'message' => 'Silakan perbaiki kesalahan di bawah ini.',
+                                 'alert-type' => 'error',
+                             ]);
         }
 
+        $image = $request->file('image')->store('blog/images', 'public');
+        $slug = Str::slug($request->title, '-');
+
+        Blog::create([
+            'title' => $request->input('title'),
+            'excerpt' => $request->input('excerpt'),
+            'image' => $image,
+            'description' => $request->input('description'),
+            'category_id' => $request->input('category_id'),
+            'slug' => $slug,
+        ]);
+
+        Alert::success('Added Successfully', ' Blog Data Added
+        Successfully.');
+
         return redirect()->route('admin.blogs.index')->with([
-            'message' => 'Success Created !',
+            'message' => 'Berhasil membuat postingan!',
             'alert-type' => 'success'
         ]);
     }
@@ -73,23 +106,60 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BlogRequest $request, Blog $blog)
+    public function update(Request $request, Blog $blog)
     {
-        if($request->validated()) {
-            $slug = Str::slug($request->title, '-');
-            if($request->image) {
-                File::delete('storage/'. $blog->image);
-                $image = $request->file('image')->store(
-                    'blog/images', 'public'
-                );
-                $blog->update($request->except('image') + ['slug' => $slug, 'image' => $image]);
-            }else {
-                $blog->update($request->validated() + ['slug' => $slug]);
-            }
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'excerpt' => 'required',
+            'image' => ['image', 'mimes:png,jpg,jpeg'],
+            'description' => 'required',
+            'category_id' => 'required'
+        ], [
+            'title.required' => 'Judul harus diisi.',
+            'excerpt.required' => 'Kutipan harus diisi.',
+            'image.image' => 'Gambar harus berupa file gambar.',
+            'image.mimes' => 'Gambar harus dalam format png, jpg, atau jpeg.',
+            'description.required' => 'Deskripsi harus diisi.',
+            'category_id.required' => 'Kategori harus dipilih.'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('admin.blogs.edit', $blog->id)
+                             ->withErrors($validator)
+                             ->withInput()
+                             ->with([
+                                 'message' => 'Silakan perbaiki kesalahan di bawah ini.',
+                                 'alert-type' => 'error',
+                             ]);
         }
 
+        $slug = Str::slug($request->title, '-');
+        if ($request->hasFile('image')) {
+            File::delete('storage/' . $blog->image);
+            $image = $request->file('image')->store('blog/images', 'public');
+            $blog->update([
+                'title' => $request->input('title'),
+                'excerpt' => $request->input('excerpt'),
+                'image' => $image,
+                'description' => $request->input('description'),
+                'category_id' => $request->input('category_id'),
+                'slug' => $slug,
+            ]);
+        } else {
+            $blog->update([
+                'title' => $request->input('title'),
+                'excerpt' => $request->input('excerpt'),
+                'description' => $request->input('description'),
+                'category_id' => $request->input('category_id'),
+                'slug' => $slug,
+            ]);
+        }
+
+        Alert::success('Changed Successfully', ' Blog Data Change
+        Successfully.');
+
         return redirect()->route('admin.blogs.index')->with([
-            'message' => 'Success Updated !',
+            'message' => 'Berhasil memperbarui postingan!',
             'alert-type' => 'info'
         ]);
     }
@@ -102,8 +172,11 @@ class BlogController extends Controller
         File::delete('storage/'. $blog->image);
         $blog->delete();
 
+        Alert::success('Deleted Successfully', ' Blog Data Delete
+        Successfully.');
+
         return redirect()->back()->with([
-            'message' => 'Success Deleted !',
+            'message' => 'Berhasil menghapus postingan!',
             'alert-type' => 'danger'
         ]);
     }
