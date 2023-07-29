@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -49,6 +50,9 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->input('name'), '-'),
         ]);
 
+        Alert::success('Added Successfully', ' Booking Data Added
+        Successfully.');
+
         return redirect()->route('admin.categories.index')->with([
             'message' => 'Success Created!',
             'alert-type' => 'success'
@@ -85,6 +89,9 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->input('name'), '-'),
         ]);
 
+        Alert::success('Changed Successfully', ' Booking Data Changed
+        Successfully.');
+
         return redirect()->route('admin.categories.index')->with([
             'message' => 'Success Updated!',
             'alert-type' => 'info'
@@ -98,9 +105,9 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with([
-            'message' => 'Success Deleted!',
-            'alert-type' => 'danger'
-        ]);
+        Alert::success('Deleted Successfully', ' Booking Data Changed
+        Successfully.');
+
+        return redirect()->route('admin.categories.index');
     }
 }
