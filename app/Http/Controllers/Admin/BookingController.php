@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\GownPackage;
 use PDF;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookingController extends Controller
 {
@@ -59,6 +59,9 @@ class BookingController extends Controller
             'number_phone' => $request->input('number_phone'),
             'date' => $request->input('date'),
         ]);
+
+        Alert::success('Added Successfully', ' Booking Data Added
+        Successfully.');
 
         return redirect()->route('admin.bookings.index')->with([
             'message' => 'Pemesanan berhasil dibuat!',
@@ -119,6 +122,8 @@ class BookingController extends Controller
             'date' => $request->input('date'),
         ]);
 
+        Alert::success('Changed Successfully', ' Update Data Successfully.');
+
         return redirect()->route('admin.bookings.index')->with([
             'message' => 'Pemesanan berhasil diperbarui!',
             'alert-type' => 'success'
@@ -133,10 +138,9 @@ class BookingController extends Controller
     {
         $booking->delete();
 
-        return redirect()->route('admin.bookings.index')->with([
-            'message' => 'Pemesanan berhasil dihapus!',
-            'alert-type' => 'danger'
-        ]);
+        Alert::success('Deleted Successfully', ' Delete Data Successfully.');
+
+        return redirect()->route('admin.bookings.index');
     }
 
     public function exportPdf()

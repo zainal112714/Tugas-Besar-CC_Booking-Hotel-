@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\GownPackage;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GownPackageController extends Controller
 {
@@ -78,6 +79,9 @@ class GownPackageController extends Controller
             'slug' => $slug
         ]);
 
+        Alert::success('Added Successfully', ' Data Added
+        Successfully.');
+
         return redirect()->route('admin.gown_packages.edit', [$gown_package])->with([
             'message' => 'Success Created!',
             'alert-type' => 'success'
@@ -143,6 +147,9 @@ class GownPackageController extends Controller
             'slug' => $slug
         ]);
 
+        Alert::success('Changed Successfully', ' Data Changed
+        Successfully.');
+
         return redirect()->route('admin.gown_packages.index')->with([
             'message' => 'Success Updated!',
             'alert-type' => 'info'
@@ -156,9 +163,9 @@ class GownPackageController extends Controller
     {
         $gown_package->delete();
 
-        return redirect()->back()->with([
-            'message' => 'Success Deleted!',
-            'alert-type' => 'danger'
-        ]);
+        Alert::success(' Deleted Successfully', ' Data Delete
+        Successfully.');
+
+        return redirect()->back();
     }
 }

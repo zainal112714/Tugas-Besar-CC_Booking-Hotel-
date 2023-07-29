@@ -51,7 +51,6 @@
         </div>
     </div>
     {{-- <!-- /.login-box --> --}}
-
     @vite('resources/js/app.js')
     {{-- <!-- Bootstrap 4 --> --}}
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

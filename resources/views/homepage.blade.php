@@ -218,9 +218,7 @@
             <div class="col-md-10 col-xl-8 text-center">
                 <h3 class="mb-4">Testimonials</h3>
                 <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-                    numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-                    quisquam eum porro a pariatur veniam.
+                    Haloo, berikut ini adalah beberapa testimoni dari pelanggan kami yang sudah menggunakan website Marie Location
                 </p>
             </div>
         </div>
@@ -234,9 +232,10 @@
                 <h5 class="mb-3">Maria Smantha</h5>
                 <h6 class="text-primary mb-3">Web Developer</h6>
                 <p class="px-xl-3">
-                    <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic
-                    tenetur.
+                    <i class="fas fa-quote-left pe-2"></i>Saya sangat senang dengan pengalaman penyewaan gaun pernikahan di situs ini.
+                    Gaun yang saya pilih sangat indah dan sesuai dengan harapan saya. Layanan
+                    pelanggan juga sangat baik, mereka membantu saya dengan ramah dan sabar
+                    dalam memilih gaun yang sempurna untuk hari istimewa saya.
                 </p>
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
                     <li>
@@ -264,8 +263,9 @@
                 <h5 class="mb-3">Lisa Cudrow</h5>
                 <h6 class="text-primary mb-3">Graphic Designer</h6>
                 <p class="px-xl-3">
-                    <i class="fas fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum
-                    exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid commodi.
+                    <i class="fas fa-quote-left pe-2"></i>Terima kasih banyak atas pelayanannya yang profesional!
+                    Saya awalnya ragu untuk menyewa gaun pernikahan secara online tetapi situs ini memberikan pengalaman yang luar biasa.
+                    Gaun yang saya dapatkan dalam kondisi sempurna. Saya Sangat merekomendasikan untuk calon pengantin lain!
                 </p>
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
                     <li>
@@ -293,8 +293,9 @@
                 <h5 class="mb-3">John Smith</h5>
                 <h6 class="text-primary mb-3">Marketing Specialist</h6>
                 <p class="px-xl-3">
-                    <i class="fas fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio
-                    dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.
+                    <i class="fas fa-quote-left pe-2"></i>Pilihan gaun pernikahan di situs ini sangat beragam dan modis.
+                    Saya sangat terkesan dengan kualitas gaun yang saya sewa. Gaun itu sempurna dan cocok dengan ukuran saya.
+                    Semua orang memuji penampilan saya pada hari pernikahan. Terima kasih banyak atas pengalaman menyenangkan ini!
                 </p>
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
                     <li>
@@ -390,7 +391,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ Vite::asset('resources/images/.png') }}" alt="">
+                            <img class="img-fluid" src="{{ Vite::asset('resources/images/ans.png') }}" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
@@ -404,7 +405,7 @@
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Anisha Trie</h5>
-                            <small>120421</small>
+                            <small>1204210138</small>
                         </div>
                     </div>
                 </div>

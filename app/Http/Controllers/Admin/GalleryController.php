@@ -7,6 +7,8 @@ use App\Models\Gallery;
 use Illuminate\Support\Facades\File;
 use App\Models\GownPackage;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class GalleryController extends Controller
 {
@@ -32,6 +34,9 @@ class GalleryController extends Controller
             'images' => $images,
             'gown_package_id' => $gown_package->id
         ]);
+
+        Alert::success('Added Successfully', ' Data Added
+        Successfully.');
 
         return redirect()->route('admin.gown_packages.edit', [$gown_package])->with([
             'message' => 'Berhasil Ditambahkan!',
@@ -70,6 +75,9 @@ class GalleryController extends Controller
         $gallery->name = $request->name;
         $gallery->save();
 
+        Alert::success('Changed Successfully', ' Data Change
+        Successfully.');
+
         return redirect()->route('admin.gown_packages.edit', [$gown_package])->with([
             'message' => 'Berhasil Diperbarui!',
             'alert-type' => 'info'
@@ -83,6 +91,9 @@ class GalleryController extends Controller
     {
         File::delete('storage/' . $gallery->images);
         $gallery->delete();
+
+        Alert::success('Deleted Successfully', ' Data Deleted
+        Successfully.');
 
         return redirect()->back()->with([
             'message' => 'Berhasil Dihapus!',
