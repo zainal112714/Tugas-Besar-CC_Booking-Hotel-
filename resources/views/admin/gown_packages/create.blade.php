@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- <!-- Content Header (Page header) --> --}}
-    <div class="content-header">
+    {{-- <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 d-flex justify-content-between">
@@ -11,7 +11,25 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 justify-content-between d-flex">
+                    <h1 class="m-0">{{ __('Form Create') }}</h1>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end"> <!-- Menggunakan class justify-content-end untuk menggeser elemen ke kanan -->
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a href="{{ route('admin.gown_packages.index') }}" class="btn btn-primary btn-sm">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><br>
     {{-- <!-- /.content-header --> --}}
 
     {{-- <!-- Main content --> --}}
@@ -77,7 +95,7 @@
                     </div>
                 </div>
             </div>
-        </div><
+        </div>
     </div>
     {{-- <!-- /.content --> --}}
 @endsection
