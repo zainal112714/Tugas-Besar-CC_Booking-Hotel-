@@ -19,7 +19,7 @@
             background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #f16a9e, #f2a2da);
 
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+            background: linear-gradient(to left, #2de3a0, #89d4b9, #bbbec5, #97ceba);
         }
 
         .gradient-custom-2 {
@@ -30,7 +30,7 @@
             background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+            background: linear-gradient(to left, #2de3a0, #89d4b9, #bbbec5, #97ceba);
         }
 
         @media (min-width: 768px) {

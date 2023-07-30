@@ -7,13 +7,20 @@
             <div class="row mb-2">
                 <div class="col-sm-12 justify-content-between d-flex">
                     <h1 class="m-0">{{ __('Blog') }}</h1>
-                    <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary btn-sm">
-                        <i class="bi bi-plus"></i> Add Blog
-                    </a>
                 </div>
             </div>
+            <div class="d-flex justify-content-end"> <!-- Menggunakan class justify-content-end untuk menggeser elemen ke kanan -->
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-plus"></i> Add
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </div><br>
+
 
     {{-- <!-- Main content --> --}}
     <div class="content">

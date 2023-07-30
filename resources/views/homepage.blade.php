@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-    {{-- ==================== HOME ==================== --}}
+    {{-- Home --}}
     <section>
         <div class="swiper-container">
             <div>
@@ -81,7 +81,7 @@
         </div>
     </section><br><br>
 
-    {{-- ==================== LOGOS ==================== --}}
+    {{-- Logo --}}
     <span class="section__subtitle" style="text-align: center">Best Choice</span>
     <h2 class="section__title" style="text-align: center">
         Popular Designers
@@ -103,7 +103,7 @@
         </div>
     </section>
 
-    {{-- ==================== POPULAR ==================== --}}
+    {{-- Popular --}}
     <section class="section" id="popular">
         <div class="container">
             <span class="section__subtitle" style="text-align: center">Best Choice</span>
@@ -143,7 +143,7 @@
         </div>
     </section>
 
-    {{-- ==================== ABOUT US ==================== --}}
+    {{-- About Us --}}
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
@@ -230,7 +230,7 @@
                         class="rounded-circle shadow-1-strong" width="150" height="150" />
                 </div>
                 <h5 class="mb-3">Maria Smantha</h5>
-                <h6 class="text-primary mb-3">Web Developer</h6>
+                <h6 class="text-primary mb-3">Entrepreneur</h6>
                 <p class="px-xl-3">
                     <i class="fas fa-quote-left pe-2"></i>Saya sangat senang dengan pengalaman penyewaan gaun pernikahan di situs ini.
                     Gaun yang saya pilih sangat indah dan sesuai dengan harapan saya. Layanan
@@ -261,7 +261,7 @@
                         class="rounded-circle shadow-1-strong" width="150" height="150" />
                 </div>
                 <h5 class="mb-3">Lisa Cudrow</h5>
-                <h6 class="text-primary mb-3">Graphic Designer</h6>
+                <h6 class="text-primary mb-3">Pegawai Swasta</h6>
                 <p class="px-xl-3">
                     <i class="fas fa-quote-left pe-2"></i>Terima kasih banyak atas pelayanannya yang profesional!
                     Saya awalnya ragu untuk menyewa gaun pernikahan secara online tetapi situs ini memberikan pengalaman yang luar biasa.
@@ -412,5 +412,5 @@
             </div>
         </div>
     </div>
-    {{-- <!-- Team End --> --}}
+    {{-- Team End  --}}
 @endsection

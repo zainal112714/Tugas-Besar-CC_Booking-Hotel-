@@ -55,7 +55,7 @@
                                                 @endforeach
                                             </td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Action Buttons">
+                                            {{-- <div class="btn-group" role="group" aria-label="Action Buttons"> --}}
                                                 <a href="{{ route('admin.gown_packages.edit', [$gown_package]) }}" class="btn btn-sm btn-info">
                                                     <i class="fa fa-edit"></i> Edit
                                                 </a>
@@ -66,7 +66,7 @@
                                                         <i class="fa fa-trash"></i> Delete
                                                     </button>
                                                 </form>
-                                            </div>
+                                            {{-- </div> --}}
                                         </td>
                                     </tr>
                                 @endforeach
