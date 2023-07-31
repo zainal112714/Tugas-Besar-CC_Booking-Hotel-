@@ -30,10 +30,12 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => ['is_admin','auth'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Route untuk export PDF data booking
-    Route::get('bookings/export-pdf', [BookingController::class, 'exportPdf'])->name('bookings.exportPdf');
-    // booking
-    Route::resource('bookings', BookingController::class);
+   // Route untuk export PDF data booking
+   Route::get('bookings/export-pdf', [BookingController::class, 'exportPdf'])->name('bookings.exportPdf');
+   // Route untuk get data booking (JSON) pada DataTables
+   Route::get('bookings/getData', [BookingController::class, 'getData'])->name('bookings.getData');
+   // booking
+   Route::resource('bookings', BookingController::class);
 
     // gown packages
     Route::resource('gown_packages', GownPackageController::class)->except('show');

@@ -14,6 +14,6 @@ class BookingSeeder extends Seeder
    public function run()
 {
     // Tambahkan data palsu ke tabel bookings menggunakan factory
-    Booking::factory()->count(5)->create();
+    Booking::factory()->count(10)->create();
 }
 }

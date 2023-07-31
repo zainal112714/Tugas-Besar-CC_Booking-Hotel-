@@ -28,7 +28,7 @@
                 <div class="col-lg-12">
 
                     <div class="card">
-                        <div class="card-body p-0">
+                        <div class="card-body p-0 table-responsive">
                             <table id="gown-package-table" class="table table-bordered table-hover table-striped mb-0 bg-white datatable">
                                 <thead>
                                     <tr>
@@ -82,14 +82,14 @@
 
 @push('scripts')
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script>
+{{-- <script>
     // Inisialisasi DataTables pada tabel "gown-package-table" setelah halaman dimuat
     $(document).ready(function() {
         $('#gown-package-table').DataTable({
             // Opsi lainnya sesuai dengan kebutuhan Anda
         });
     });
-</script>
+</script> --}}
 @push('scripts')
 <script type="module">
     $(document).ready(function() {
