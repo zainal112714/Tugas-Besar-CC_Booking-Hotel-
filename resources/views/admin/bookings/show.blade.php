@@ -34,6 +34,14 @@
                 <p>{{ $booking->gown_package->size }}</p>
             </div>
 
+            <div class="mb-3">
+                <label class="form-label">Barcode:</label>
+                <p>
+                    <img src="data:image/png;base64,{{ $booking->barcode }}" alt="Barcode">
+                </p>
+                <p></p>
+            </div>
+
             <hr>
 
             <div class="row justify-content-center">

@@ -10,6 +10,7 @@ use App\Models\GownPackage;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
+
 class GownPackageController extends Controller
 {
     /**
@@ -167,5 +168,33 @@ class GownPackageController extends Controller
         Successfully.');
 
         return redirect()->back();
+    }
+
+    /**
+     * Get gown package data for DataTables.
+     */
+    public function getGownPackageData(Request $request)
+    {
+        if ($request->ajax()) {
+            $gownPackages = GownPackage::query();
+            return DataTables::of($gownPackages)
+                ->addColumn('DT_RowIndex', function ($gownPackage) {
+                    return '';
+                })
+                ->addColumn('image', function ($gownPackage) {
+                    $galleryImages = '';
+                    foreach ($gownPackage->galleries as $gallery) {
+                        $galleryImages .= '<a href="' . Storage::url($gallery->images) . '" target="_blank">';
+                        $galleryImages .= '<img width="100" src="' . Storage::url($gallery->images) . '" alt="' . $gallery->name . '">';
+                        $galleryImages .= '</a>';
+                    }
+                    return $galleryImages;
+                })
+                ->addColumn('action', function ($gownPackage) {
+                    return view('admin.gown_packages.actions', compact('gownPackage'));
+                })
+                ->rawColumns(['action', 'image'])
+                ->make(true);
+        }
     }
 }

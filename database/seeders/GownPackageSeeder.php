@@ -14,6 +14,6 @@ class GownPackageSeeder extends Seeder
     public function run(): void
     {
         //
-        GownPackage::factory()->count(0)->create();
+        GownPackage::factory()->count(5)->create();
     }
 }

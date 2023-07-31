@@ -18,7 +18,7 @@ class BookingFactory extends Factory
      */
     public function definition(): array
     {
-        $barcodeText = 'BOOK-' . rand(10000, 99999);
+        $barcodeText = 'MarieL-' . rand(10000, 99999);
         $barcodeImage = DNS1D::getBarcodePNG($barcodeText, 'C128');
 
         return [
