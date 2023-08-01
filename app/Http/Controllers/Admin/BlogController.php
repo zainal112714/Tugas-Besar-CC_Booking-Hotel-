@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\DataTables;
 
 class BlogController extends Controller
 {
@@ -88,9 +90,9 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
-        //
+    return view('admin.blogs.show', compact('blog'));
     }
 
     /**
@@ -180,4 +182,42 @@ class BlogController extends Controller
             'alert-type' => 'danger'
         ]);
     }
+
+        public function getData(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Blog::with('category')->latest()->get();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('image', function ($row) {
+                    return '<a href="' . asset(Storage::url($row->image)) . '" target="_blank">
+                                <img src="' . asset(Storage::url($row->image)) . '" width="100" alt="">
+                            </a>';
+                })
+                ->addColumn('action', function ($row) {
+                    $editUrl = route('admin.blogs.edit', $row->id);
+                    $deleteUrl = route('admin.blogs.destroy', $row->id);
+                    $showUrl = route('admin.blogs.show', $row->id);
+                    $csrf = csrf_field();
+                    $method = method_field('DELETE');
+
+                    $actionButtons = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                    $actionButtons .= '<a href="' . $showUrl . '" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> View</a>';
+                    $actionButtons .= '<a href="' . $editUrl . '" class="btn btn-sm btn-info"><i class="bi bi-pencil"></i> Edit</a>';
+                    $actionButtons .= '<form class="d-inline-block" action="' . $deleteUrl . '" method="post" onsubmit="return confirm(\'Are you sure you want to delete this blog?\');">';
+                    $actionButtons .= $csrf . $method;
+                    $actionButtons .= '<button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Delete</button>';
+                    $actionButtons .= '</form>';
+                    $actionButtons .= '</div>';
+
+                    return $actionButtons;
+                })
+                ->rawColumns(['image', 'action'])
+                ->make(true);
+        }
+
+        return abort(404);
+    }
+
 }

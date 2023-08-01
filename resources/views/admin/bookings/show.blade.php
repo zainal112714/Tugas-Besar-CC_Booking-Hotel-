@@ -31,7 +31,15 @@
 
             <div class="mb-3">
                 <label class="form-label">Gown Package:</label>
-                <p>{{ $booking->gown_package->size }}</p>
+                <p>{{ $booking->gown_package->type }}</p>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Barcode:</label>
+                <p>
+                    <img src="data:image/png;base64,{{ $booking->barcode }}" alt="Barcode">
+                </p>
+                <p></p>
             </div>
 
             <div class="mb-3">
