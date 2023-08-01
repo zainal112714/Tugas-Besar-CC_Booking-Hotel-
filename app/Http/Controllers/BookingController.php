@@ -6,6 +6,8 @@ use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DNS1D;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class BookingController extends Controller
 {
@@ -57,9 +59,9 @@ class BookingController extends Controller
             'barcode' => $barcodeImage, // Simpan barcode ke dalam kolom 'barcode'
         ]);
 
+
         return redirect()->back()->with([
             'message' => "Berhasil, kami akan memproses pemesanan Anda silahkan menunggu WA dari admin, Terimakasih."
         ]);
     }
-
 }
