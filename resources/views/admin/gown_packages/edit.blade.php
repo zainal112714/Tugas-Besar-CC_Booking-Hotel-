@@ -1,16 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-12 d-flex justify-content-between">
+                <div class="col-sm-12 justify-content-between d-flex">
                     <h1 class="m-0">{{ __('Form Edit') }}</h1>
-                    <a href="{{ route('admin.gown_packages.index') }}" class="btn btn-primary"> <i class="fa fa-arrow-left"></i> </a>
                 </div>
             </div>
+            <div class="d-flex justify-content-end"> <!-- Menggunakan class justify-content-end untuk menggeser elemen ke kanan -->
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a href="{{ route('admin.gown_packages.index') }}" class="btn btn-primary btn-sm">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </div><br>
 
     {{-- Main content --}}
     <div class="content">
