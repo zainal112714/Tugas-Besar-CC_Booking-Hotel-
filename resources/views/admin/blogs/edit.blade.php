@@ -57,8 +57,8 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    @if (old('image'))
-                                        <img src="{{ asset('storage/' . old('image')) }}" alt="Blog Image" class="img-thumbnail mt-2" style="max-height: 200px;">
+                                    @if ($blog->image)
+                                        <img src="{{ asset(Storage::url($blog->image)) }}" alt="Blog Image" class="img-thumbnail mt-2" style="max-height: 200px;">
                                     @endif
                                 </div>
                             </div>

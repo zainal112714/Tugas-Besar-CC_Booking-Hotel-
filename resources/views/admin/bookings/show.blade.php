@@ -31,7 +31,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Gown Package:</label>
-                <p>{{ $booking->gown_package->size }}</p>
+                <p>{{ $booking->gown_package->type }}</p>
             </div>
 
             <div class="mb-3">

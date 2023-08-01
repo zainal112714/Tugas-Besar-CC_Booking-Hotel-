@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-{{-- <!--==================== Blog ====================--> --}}
+{{--  Blog  --}}
 <section>
         <div class="swiper-container gallery-top">
           <div class="swiper-wrapper">

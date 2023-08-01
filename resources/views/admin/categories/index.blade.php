@@ -22,18 +22,15 @@
         </div>
     </div><br>
 
-
-
     {{--  Main content  --}}
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
                     <div class="card">
-                        <div class="card-body p-0">
-
+                        <div class="card-body p-0 table-responsive">
                             <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable"
-                                id="categoryTable">
+                                id="categoryTable" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -41,27 +38,6 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($categories as $category)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $category->name }}</td>
-                                            <td>
-                                                <a href="{{ route('admin.categories.edit', [$category]) }}"
-                                                    class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> Edit </a>
-                                                <form onclick="return confirm('are you sure ?');" class="d-inline-block"
-                                                    action="{{ route('admin.categories.destroy', [$category]) }}"
-                                                    method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i>
-                                                        Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -72,9 +48,40 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="module">
     $(document).ready(function() {
-        $('#categoryTable').DataTable();
+        $('#categoryTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.categories.getData') }}",
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'name', name: 'name' },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    render: function (data, type, full, meta) {
+                        var editUrl = "{{ route('admin.categories.edit', ':id') }}".replace(':id', full.id);
+                        var deleteUrl = "{{ route('admin.categories.destroy', ':id') }}".replace(':id', full.id);
+                        var csrfToken = "{{ csrf_token() }}";
+
+                        var actionButtons = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                        actionButtons += '<a href="' + editUrl + '" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>';
+                        actionButtons += '<form class="d-inline-block" action="' + deleteUrl + '" method="post" onsubmit="return confirm(\'Are you sure you want to delete this category?\');">';
+                        actionButtons += '<input type="hidden" name="_token" value="' + csrfToken + '">';
+                        actionButtons += '<input type="hidden" name="_method" value="DELETE">';
+                        actionButtons += '<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</button>';
+                        actionButtons += '</form>';
+                        actionButtons += '</div>';
+
+                        return actionButtons;
+                    }
+                }
+            ]
+        });
     });
 </script>
 @endpush

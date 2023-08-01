@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\GownPackage;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Storage;
 
 class GownPackageController extends Controller
 {
@@ -87,6 +88,14 @@ class GownPackageController extends Controller
             'message' => 'Success Created!',
             'alert-type' => 'success'
         ]);
+    }
+
+/**
+     * Display the specified resource.
+     */
+    public function show(GownPackage $gown_package)
+    {
+        return view('admin.gown_packages.show', compact('gown_package'));
     }
 
     /**
@@ -173,28 +182,37 @@ class GownPackageController extends Controller
     /**
      * Get gown package data for DataTables.
      */
-    public function getGownPackageData(Request $request)
-    {
-        if ($request->ajax()) {
-            $gownPackages = GownPackage::query();
-            return DataTables::of($gownPackages)
-                ->addColumn('DT_RowIndex', function ($gownPackage) {
-                    return '';
-                })
-                ->addColumn('image', function ($gownPackage) {
-                    $galleryImages = '';
-                    foreach ($gownPackage->galleries as $gallery) {
-                        $galleryImages .= '<a href="' . Storage::url($gallery->images) . '" target="_blank">';
-                        $galleryImages .= '<img width="100" src="' . Storage::url($gallery->images) . '" alt="' . $gallery->name . '">';
-                        $galleryImages .= '</a>';
-                    }
-                    return $galleryImages;
-                })
-                ->addColumn('action', function ($gownPackage) {
-                    return view('admin.gown_packages.actions', compact('gownPackage'));
-                })
-                ->rawColumns(['action', 'image'])
-                ->make(true);
-        }
-    }
+
+     public function getData(Request $request)
+     {
+         if ($request->ajax()) {
+             $data = GownPackage::with('galleries')->latest()->get();
+
+             return DataTables::of($data)
+                 ->addIndexColumn()
+                 ->addColumn('action', function ($row) {
+                     $showUrl = route('admin.gown_packages.show', $row->slug);
+                     $editUrl = route('admin.gown_packages.edit', $row->id);
+                     $deleteUrl = route('admin.gown_packages.destroy', $row->id);
+
+                     $csrf = csrf_field();
+                     $method = method_field('DELETE');
+
+                     $actionBtn = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                     $actionBtn .= '<a href="' . $showUrl . '" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Show</a>';
+                     $actionBtn .= '<a href="' . $editUrl . '" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>';
+                     $actionBtn .= '<form class="d-inline-block" action="' . $deleteUrl . '" method="post" onsubmit="return confirm(\'Are you sure you want to delete this gown package?\');">';
+                     $actionBtn .= $csrf . $method;
+                     $actionBtn .= '<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</button>';
+                     $actionBtn .= '</form>';
+                     $actionBtn .= '</div>';
+
+                     return $actionBtn;
+                 })
+                 ->make(true);
+         }
+
+         return abort(404);
+     }
+
 }
