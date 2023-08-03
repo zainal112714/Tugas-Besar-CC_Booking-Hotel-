@@ -24,53 +24,21 @@
     {{-- <!-- Main content --> --}}
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
                     <div class="card">
-                        <div class="card-body p-0">
-                            <table id="gown-package-table" class="table table-bordered table-hover table-striped mb-0 bg-white datatable">
+                        <div class="card-body table-responsive">
+                            <table id="gown-package-table" class="table table-bordered table-hover table-striped mb-0 bg-white" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Type</th>
                                         <th>Size</th>
                                         <th>Price</th>
-                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                @foreach($gown_packages as $gown_package)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $gown_package->type }}</td>
-                                            <td>{{ $gown_package->size }}</td>
-                                            <td>{{ $gown_package->price }}</td>
-                                            <td>
-                                                @foreach($gown_package->galleries as $gallery)
-                                                    <a href="{{ Storage::url($gallery->images) }}" target="_blank">
-                                                        <img width="100" src="{{ Storage::url($gallery->images) }}" alt="{{ $gallery->name }}">
-                                                    </a>
-                                                @endforeach
-                                            </td>
-                                        <td>
-                                            {{-- <div class="btn-group" role="group" aria-label="Action Buttons"> --}}
-                                                <a href="{{ route('admin.gown_packages.edit', [$gown_package]) }}" class="btn btn-sm btn-info">
-                                                    <i class="fa fa-edit"></i> Edit
-                                                </a>
-                                                <form onclick="return confirm('Are you sure you want to delete this gown package?');" class="d-inline-block" action="{{ route('admin.gown_packages.destroy', [$gown_package]) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-sm btn-danger">
-                                                        <i class="fa fa-trash"></i> Delete
-                                                    </button>
-                                                </form>
-                                            {{-- </div> --}}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
+                                {{-- <!-- Table body content will be filled dynamically using DataTables --> --}}
                             </table>
                         </div>
                     </div>
@@ -82,18 +50,43 @@
 
 @push('scripts')
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script>
-    // Inisialisasi DataTables pada tabel "gown-package-table" setelah halaman dimuat
-    $(document).ready(function() {
-        $('#gown-package-table').DataTable({
-            // Opsi lainnya sesuai dengan kebutuhan Anda
-        });
-    });
-</script>
-@push('scripts')
 <script type="module">
     $(document).ready(function() {
-        $('#gown-package-table').DataTable();
+        $('#gown-package-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.gown_packages.getData') }}",
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'type', name: 'type' },
+                { data: 'size', name: 'size' },
+                { data: 'price', name: 'price' },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    render: function (data, type, full, meta) {
+                        var showUrl = "{{ route('admin.gown_packages.show', ':id') }}".replace(':id', full.id);
+                        var editUrl = "{{ route('admin.gown_packages.edit', ':id') }}".replace(':id', full.id);
+                        var deleteUrl = "{{ route('admin.gown_packages.destroy', ':id') }}".replace(':id', full.id);
+                        var csrfToken = "{{ csrf_token() }}";
+
+                        var actionButtons = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                        actionButtons += '<a href="' + showUrl + '" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Show</a>';
+                        actionButtons += '<a href="' + editUrl + '" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>';
+                        actionButtons += '<form class="d-inline-block" action="' + deleteUrl + '" method="post" onsubmit="return confirm(\'Are you sure you want to delete this gown package?\');">';
+                        actionButtons += '<input type="hidden" name="_token" value="' + csrfToken + '">';
+                        actionButtons += '<input type="hidden" name="_method" value="DELETE">';
+                        actionButtons += '<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</button>';
+                        actionButtons += '</form>';
+                        actionButtons += '</div>';
+
+                        return actionButtons;
+                    }
+                }
+            ]
+        });
     });
 </script>
 @endpush

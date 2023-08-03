@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
@@ -110,4 +111,34 @@ class CategoryController extends Controller
 
         return redirect()->route('admin.categories.index');
     }
+
+    public function getData(Request $request)
+{
+    if ($request->ajax()) {
+        $data = Category::latest()->get();
+
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                $editUrl = route('admin.categories.edit', $row->id);
+                $deleteUrl = route('admin.categories.destroy', $row->id);
+                $csrf = csrf_field();
+                $method = method_field('DELETE');
+
+                $actionBtn = '<div class="btn-group" role="group" aria-label="Action Buttons">';
+                $actionBtn .= '<a href="' . $editUrl . '" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>';
+                $actionBtn .= '<form class="d-inline-block" action="' . $deleteUrl . '" method="post" onsubmit="return confirm(\'Are you sure you want to delete this category?\');">';
+                $actionBtn .= $csrf . $method;
+                $actionBtn .= '<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</button>';
+                $actionBtn .= '</form>';
+                $actionBtn .= '</div>';
+
+                return $actionBtn;
+            })
+            ->make(true);
+    }
+
+    return abort(404);
+}
+
 }

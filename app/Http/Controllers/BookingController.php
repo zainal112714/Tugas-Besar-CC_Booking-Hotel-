@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use DNS1D;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class BookingController extends Controller
 {
@@ -42,6 +45,10 @@ class BookingController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Generate barcode
+        $barcodeText = 'MarieL-' . rand(10000, 99999); // Kode booking yang diambil dari data booking atau dapat digenerate sesuai kebutuhan
+        $barcodeImage = DNS1D::getBarcodePNG($barcodeText, 'C128');
+
         // Jika validasi berhasil, simpan data ke database
         Booking::create([
             'gown_package_id' => $request->input('gown_package_id'),
@@ -49,7 +56,9 @@ class BookingController extends Controller
             'email' => $request->input('email'),
             'number_phone' => $request->input('number_phone'),
             'date' => $request->input('date'),
+            'barcode' => $barcodeImage, // Simpan barcode ke dalam kolom 'barcode'
         ]);
+
 
         return redirect()->back()->with([
             'message' => "Berhasil, kami akan memproses pemesanan Anda silahkan menunggu WA dari admin, Terimakasih."
